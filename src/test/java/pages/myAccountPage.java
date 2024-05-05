@@ -14,4 +14,6 @@ public class myAccountPage {
     }
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewEmail\"]\n")
     public WebElement eMailTextForConfirm;
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.view.ViewGroup/android.view.ViewGroup")
+    public WebElement randomPress;
 }

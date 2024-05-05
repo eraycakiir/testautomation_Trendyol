@@ -1,6 +1,8 @@
 package utils;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -28,6 +30,12 @@ public class Driver {
             }
         }
         return driver;
+    }
+    public static AndroidDriver androidDriver;
+    public static void pressBackButton() {
+        if (driver != null) {
+            driver.pressKey(new KeyEvent(AndroidKey.BACK));
+        }
     }
 
     public static void Wait(int s) {

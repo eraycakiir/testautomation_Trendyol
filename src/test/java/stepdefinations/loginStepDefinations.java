@@ -1,5 +1,7 @@
 package stepdefinations;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -7,6 +9,8 @@ import pages.loginPage;
 import pages.mainPage;
 import pages.myAccountPage;
 import utils.Driver;
+
+import java.awt.event.KeyEvent;
 
 public class loginStepDefinations extends Driver {
     mainPage mainPageElements = new mainPage();
@@ -54,9 +58,12 @@ public class loginStepDefinations extends Driver {
     public void clickToLoginButton() {
         loginPageElements.loginButton.click();
         Driver.Wait(5);
-
     }
-
+    @And("Press Back Button")
+    public void pressBackButtonFunction() {
+        Driver.Wait(5);
+        pressBackButton();
+    }
     @And("Method to check that you are logged in")
     public void methodToCheckThatYouAreLoggedIn() {
         if (myAccountPageElements.eMailTextForConfirm.getText().equals("test.erayqua@gmail.com")) {
