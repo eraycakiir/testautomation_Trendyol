@@ -29,18 +29,13 @@ public class loginStepDefinations extends Driver {
     @When("Click to Dismiss Button Again")
     public void clickToDismissButtonAgain() {
         Driver.Wait(3);
-        mainPageElements.TooltipCloseButton.click();
+        mainPageElements.toolTipCloseButton.click();
     }
 
     @When("Click to My Account Button")
     public void clickToMyAccountButton() {
-        mainPageElements.myAccountbox.click();
+        mainPageElements.myAccountBox.click();
     }
-
-   // @When("Click to Cancel GooglePopupButton")
-    //public void clickToCancelGooglePopupButton() {
-      //  loginPageElements.cancelGooglePopupButton.click();
-    //}
 
     @When("Click to e-mail and writing to e-mail")
     public void clickToEMailAndWritingToEMail() {

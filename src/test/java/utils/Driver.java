@@ -20,7 +20,7 @@ public class Driver {
             options.setAppPackage("trendyol.com");
             options.setAppActivity("com.trendyol.common.splash.impl.ui.SplashActivity");
             options.setUdid("emulator-5554");
-            options.setNoReset(false); //Yapılan şeyler kayıtlı kalsın mı kalmasın mı ?
+            options.setNoReset(true); //Yapılan şeyler kayıtlı kalsın mı kalmasın mı ?
             options.setNewCommandTimeout(Duration.ofMinutes(19));
 
             try {

@@ -8,11 +8,10 @@ import utils.Driver;
 
 import java.time.Duration;
 
-public class myAccountPage {
-    public myAccountPage() {
+public class productSearchPage {
+    public productSearchPage() {
         PageFactory.initElements(new AppiumFieldDecorator(Driver.getDriver(), Duration.ofSeconds(25)), this);
     }
-    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewEmail\"]\n")
-    public WebElement eMailTextForConfirm;
-
+    @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@resource-id=\"trendyol.com:id/recyclerViewSearchAutoComplete\"]/android.view.ViewGroup[1]\n")
+    public WebElement  firstElementForTheSearchedProduct;
 }
