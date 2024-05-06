@@ -5,4 +5,4 @@ Feature:
     When Writing product name
     When Click to product
     When Click to SortBy button
-    And Choose the "En Yüksek Fiyat"
+    And Choose the SortBy Options "En Yüksek Fiyat"
