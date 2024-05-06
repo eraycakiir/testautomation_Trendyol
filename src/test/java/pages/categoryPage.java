@@ -1,0 +1,20 @@
+package pages;
+
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import utils.Driver;
+
+import java.time.Duration;
+import java.util.List;
+
+public class categoryPage {
+    public categoryPage() {
+        PageFactory.initElements(new AppiumFieldDecorator(Driver.getDriver(), Duration.ofSeconds(25)), this);
+    }
+    @AndroidFindBy(xpath = "(//android.view.ViewGroup[@resource-id=\"trendyol.com:id/linearLayout\"])")
+    public List <WebElement> chooseByCategoryList;
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"trendyol.com:id/imageCollapsibleBannerItem\"])")
+    public List <WebElement> selectSubCategoryList;
+}

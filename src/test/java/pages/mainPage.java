@@ -20,5 +20,7 @@ public class mainPage {
     public WebElement   toolTipCloseButton;
     @AndroidFindBy(xpath = "//android.widget.EditText[@content-desc=\"Ara\"]\n")
     public WebElement productSearchTextBox;
+    @AndroidFindBy(xpath = "(//androidx.appcompat.widget.LinearLayoutCompat[@resource-id=\"trendyol.com:id/linearLayoutButton\"])[1]\n")
+    public WebElement categoriesButton;
 
 }

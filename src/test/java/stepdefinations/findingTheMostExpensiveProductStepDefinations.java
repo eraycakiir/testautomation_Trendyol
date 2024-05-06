@@ -35,7 +35,6 @@ public class findingTheMostExpensiveProductStepDefinations {
 
     @And("Choose the SortBy Options {string}")
     public void chooseThe(String optionText) {
-        System.out.println(optionText);
         for (WebElement element : productPageElements.sortByOptionsList)
         {
             if (element.getText().equals(optionText)) {
