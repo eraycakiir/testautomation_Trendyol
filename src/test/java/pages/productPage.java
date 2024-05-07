@@ -17,7 +17,7 @@ public class productPage {
     public WebElement sortByButton;
     @AndroidFindBy(xpath = "//android.widget.RadioButton[@resource-id=\"trendyol.com:id/radioButtonSortingTypeItem\"]")
     public List <WebElement> sortByOptionsList;
-    @AndroidFindBy(xpath = "//android.widget.RadioButton[@resource-id=\"trendyol.com:id/radioButtonSortingTypeItem\"]")
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"trendyol.com:id/imageViewProduct\"])")
     public List <WebElement> allProductsList;
 
 }

@@ -13,7 +13,7 @@ public class categoryPage {
     public categoryPage() {
         PageFactory.initElements(new AppiumFieldDecorator(Driver.getDriver(), Duration.ofSeconds(25)), this);
     }
-    @AndroidFindBy(xpath = "(//android.view.ViewGroup[@resource-id=\"trendyol.com:id/linearLayout\"])")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\"]")
     public List <WebElement> chooseByCategoryList;
     @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"trendyol.com:id/imageCollapsibleBannerItem\"])")
     public List <WebElement> selectSubCategoryList;

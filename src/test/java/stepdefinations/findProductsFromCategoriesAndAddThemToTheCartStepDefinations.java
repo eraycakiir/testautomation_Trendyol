@@ -1,32 +1,43 @@
 package stepdefinations;
 
+
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import pages.categoryPage;
 import pages.mainPage;
 import pages.productPage;
 import utils.Driver;
+import utils.HelperFunctions;
 
+import java.time.Duration;
 import java.util.Random;
+
+import static utils.Driver.getDriver;
+
 
 public class findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
     mainPage mainPageElements = new mainPage();
     categoryPage categoryPageElements = new categoryPage();
     productPage productPageElements = new productPage();
+    HelperFunctions helperFunctions = new HelperFunctions();
+
     @Then("Click to All Categories button")
     public void clickToAllCategoriesButton() {
         mainPageElements.categoriesButton.click();
         Driver.Wait(5);
     }
+
     @Then("Select Category {string}")
     public void selectCategory(String categoryName) {
         Driver.Wait(5);
-        for (WebElement element : categoryPageElements.chooseByCategoryList)
-        {
+        for (WebElement element : categoryPageElements.chooseByCategoryList) {
             if (element.getText().equals(categoryName)) {
                 element.click();
                 break;
@@ -34,6 +45,7 @@ public class findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
         }
 
     }
+
     @Then("Select Sub Category {int}")
     public void selectSubCategory(int index) {
         Driver.Wait(5);
@@ -51,29 +63,17 @@ public class findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
     }
 
     @Then("Select the Product")
-    public void selectTheProduct() {
+    public void selectTheProduct() throws InterruptedException {
         Driver.Wait(5);
-        // Rastgele scroll yapma işlemi
-        Dimension size = Driver.getDriver().manage().window().getSize();
-        int startX = size.width / 2;
-        int startY = (int) (size.height * 0.80);
-        int endY = (int) (size.height * 0.20);
+        Random rand = new Random();
+        int randomScroll = rand.nextInt(25 - 1 + 1) + 1;
+        helperFunctions.scroll(Driver.getDriver(), randomScroll);
 
-        for (int i = 0; i < new Random().nextInt(5) + 1; i++) {
-            new TouchAction(Driver.getDriver())
-                    .press(PointOption.point(startX, startY))
-                    .waitAction()
-                    .moveTo(PointOption.point(startX, endY))
-                    .release()
-                    .perform();
-            Driver.Wait(4); // Bekleme süresi
-        }
-        if (!productPageElements.allProductsList.isEmpty()) {
-            int randomIndex = new Random().nextInt(productPageElements.allProductsList.size());
-            productPageElements.allProductsList.get(randomIndex).click();
-        } else {
-            System.out.println("Ürün listesi boş.");
-        }
+        Driver.Wait(4);
+        int randomProduct = rand.nextInt(productPageElements.allProductsList.size());
+        System.out.println(randomProduct);
+        productPageElements.allProductsList.get(randomProduct).click();
+
     }
 
     @Then("Add To Cart")
@@ -95,7 +95,6 @@ public class findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
     public void clickToTrashButtonForDeleteAllProductsInCart() {
         System.out.println("hey");
     }
-
 
 
 }

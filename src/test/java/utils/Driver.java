@@ -20,6 +20,7 @@ public class Driver {
             options.setAppPackage("trendyol.com");
             options.setAppActivity("com.trendyol.common.splash.impl.ui.SplashActivity");
             options.setUdid("emulator-5554");
+            options.setCapability("automationName", "UiAutomator2");
             options.setNoReset(true); //Yapılan şeyler kayıtlı kalsın mı kalmasın mı ?
             options.setNewCommandTimeout(Duration.ofMinutes(19));
 
