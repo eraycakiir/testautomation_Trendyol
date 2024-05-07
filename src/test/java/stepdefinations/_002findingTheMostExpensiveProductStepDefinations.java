@@ -3,13 +3,11 @@ package stepdefinations;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import pages.mainPage;
 import pages.productPage;
 import pages.productSearchPage;
-import utils.Driver;
 
-public class findingTheMostExpensiveProductStepDefinations {
+public class _002findingTheMostExpensiveProductStepDefinations {
     mainPage mainPageElements = new mainPage();
     productSearchPage productSearchPageElements = new productSearchPage();
     productPage productPageElements = new productPage();

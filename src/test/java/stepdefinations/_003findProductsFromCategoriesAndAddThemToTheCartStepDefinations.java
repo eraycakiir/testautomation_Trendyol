@@ -1,31 +1,24 @@
 package stepdefinations;
 
 
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import pages.cartPage;
 import pages.categoryPage;
 import pages.mainPage;
 import pages.productPage;
 import utils.Driver;
 import utils.HelperFunctions;
 
-import java.time.Duration;
 import java.util.Random;
 
-import static utils.Driver.getDriver;
 
-
-public class findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
+public class _003findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
     mainPage mainPageElements = new mainPage();
     categoryPage categoryPageElements = new categoryPage();
     productPage productPageElements = new productPage();
+    cartPage cartPageElements = new cartPage();
     HelperFunctions helperFunctions = new HelperFunctions();
 
     @Then("Click to All Categories button")
@@ -78,22 +71,43 @@ public class findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
 
     @Then("Add To Cart")
     public void addToCart() {
-        System.out.println("hey");
+        productPageElements.addToCart.click();
+        if(productPageElements.addToCart.isEnabled()){
+            productPageElements.addToCart.click();
+        }
+
     }
 
     @Then("Go to Cart")
     public void goToCart() {
-        System.out.println("hey");
+        productPageElements.goToCart.click();
     }
 
     @Then("Check that the price is correct when the number of products increases")
     public void checkThatThePriceIsCorrectWhenTheNumberOfProductsIncreases() {
-        System.out.println("hey");
+        String firstPriceText = cartPageElements.normalPrice.getText();
+        double firstPrice = helperFunctions.extractPrice(firstPriceText);
+
+        cartPageElements.addButton.click();
+
+        String secondPriceText = cartPageElements.normalPrice.getText();
+        double secondPrice = helperFunctions.extractPrice(secondPriceText);
+        if (secondPrice == firstPrice * 2) {
+            System.out.println("Price is correct");
+        }
+        cartPageElements.subTractButton.click();
+        String thirdPriceText = cartPageElements.normalPrice.getText();
+        double thirdPrice = helperFunctions.extractPrice(thirdPriceText);
+        if (thirdPrice == firstPrice) {
+            System.out.println("Price is correct");
+        }
     }
 
     @And("Click to Trash Button for delete all products in Cart")
     public void clickToTrashButtonForDeleteAllProductsInCart() {
-        System.out.println("hey");
+        cartPageElements.deleteButton.click();
+        Driver.Wait(2);
+        cartPageElements.deleteButtonAction.click();
     }
 
 

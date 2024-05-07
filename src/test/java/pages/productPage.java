@@ -19,5 +19,9 @@ public class productPage {
     public List <WebElement> sortByOptionsList;
     @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"trendyol.com:id/imageViewProduct\"])")
     public List <WebElement> allProductsList;
+    @AndroidFindBy(xpath = "//android.widget.Button[@text=\"Sepete Ekle\"]\n")
+    public  WebElement addToCart;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/productDetailBasketItemCount\"]\n")
+    public  WebElement goToCart;
 
 }

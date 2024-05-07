@@ -1,7 +1,5 @@
 package stepdefinations;
 
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.nativekey.AndroidKey;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -10,9 +8,7 @@ import pages.mainPage;
 import pages.myAccountPage;
 import utils.Driver;
 
-import java.awt.event.KeyEvent;
-
-public class loginStepDefinations extends Driver {
+public class _001loginStepDefinations extends Driver {
     mainPage mainPageElements = new mainPage();
     loginPage loginPageElements = new loginPage();
     myAccountPage myAccountPageElements = new myAccountPage();

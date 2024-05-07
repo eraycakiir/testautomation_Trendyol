@@ -18,6 +18,5 @@ public class loginPage {
     public WebElement passwordTextBox;
     @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"trendyol.com:id/buttonLogin\"]\n")
     public WebElement loginButton;
-    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Cancel\"]\n")
-    public WebElement cancelGooglePopupButton;
+
 }

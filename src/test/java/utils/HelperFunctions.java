@@ -34,4 +34,23 @@ public class HelperFunctions {
             driver.perform(Collections.singletonList(sequence));}
         Thread.sleep(3000);
     }
+    public double extractPrice(String priceText) {
+        // Rakamları, virgül ve noktayı al
+        String cleanPriceText = priceText.replaceAll("[^\\d,\\.]", "");
+
+        // Metinde sayı olup olmadığını kontrol et
+        if (!cleanPriceText.matches(".*\\d.*")) {
+            throw new IllegalArgumentException("Geçerli bir fiyat içermeyen metin: " + priceText);
+        }
+
+        // Virgül ve nokta işaretlerini düzelt
+        cleanPriceText = cleanPriceText.replace(".", "").replace(",", ".");
+
+        // Sayıyı çift olarak dönüştür
+        try {
+            return Double.parseDouble(cleanPriceText);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Fiyat metnini çözümleme hatası: " + priceText);
+        }
+    }
 }
