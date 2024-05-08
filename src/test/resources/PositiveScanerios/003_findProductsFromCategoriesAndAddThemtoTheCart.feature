@@ -3,7 +3,8 @@ Feature:
     Given Go to the Main Page
     Then Click to All Categories button
     Then Select Category "Erkek"
-    Then Select Sub Category 4
+    Then Select Sub Category for Text List "Ayakkabı"
+    Then Select Sub Category for Image List "Sneaker"
     Then Select the Product
     Then Add To Cart
     Then Go to Cart

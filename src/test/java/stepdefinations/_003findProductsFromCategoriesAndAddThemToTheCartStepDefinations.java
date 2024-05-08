@@ -39,7 +39,7 @@ public class _003findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
 
     }
 
-    @Then("Select Sub Category {int}")
+   /* @Then("Select Sub Category {int}")
     public void selectSubCategory(int index) {
         Driver.Wait(5);
         int currentIndex = 0;
@@ -53,8 +53,31 @@ public class _003findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
         if (currentIndex != index) {
             System.out.println("Invalid index: " + index);
         }
-    }
+    }*/
+    @Then("Select Sub Category for Text List {string}")
+    public void selectSubCategoryForTextList(String chosenCategory) {
+        Driver.Wait(2);
+        categoryPageElements.selectSubCategoryListForTextFirst.click();
+        Driver.Wait(5);
+        for (WebElement element : categoryPageElements.selectSubCategoryListForText) {
+            if (element.getText().equals(chosenCategory)) {
+                element.click();
+                break;
+            }
+        }
 
+
+    }
+    @Then("Select Sub Category for Image List {string}")
+    public void selectSubCategoryForImageList(String chosenCategory) {
+        Driver.Wait(2);
+        for (WebElement element : categoryPageElements.selectSubCategoryListForImage){
+            if (element.getText().equals(chosenCategory)) {
+                element.click();
+                break;
+            }
+        }
+    }
     @Then("Select the Product")
     public void selectTheProduct() throws InterruptedException {
         Driver.Wait(5);
@@ -109,6 +132,5 @@ public class _003findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
         Driver.Wait(2);
         cartPageElements.deleteButtonAction.click();
     }
-
 
 }
