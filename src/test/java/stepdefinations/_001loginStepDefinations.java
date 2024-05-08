@@ -18,7 +18,7 @@ public class _001loginStepDefinations extends Driver {
     public void goToTheMainPage() {
         Driver.getDriver();
     }
-    @When("Click to Dismiss Button")
+  /*  @When("Click to Dismiss Button")
     public void clickToDismissButton() {
         mainPageElements.dismissButton.click();
     }
@@ -26,7 +26,7 @@ public class _001loginStepDefinations extends Driver {
     public void clickToDismissButtonAgain() {
         Driver.Wait(3);
         mainPageElements.toolTipCloseButton.click();
-    }
+    } */
 
     @When("Click to My Account Button")
     public void clickToMyAccountButton() {

@@ -26,58 +26,41 @@ public class _003findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
         mainPageElements.categoriesButton.click();
         Driver.Wait(5);
     }
-
-    @Then("Select Category {string}")
-    public void selectCategory(String categoryName) {
+    @Then("Select Category")
+    public void selectCategory() {
         Driver.Wait(5);
-        for (WebElement element : categoryPageElements.chooseByCategoryList) {
-            if (element.getText().equals(categoryName)) {
-                element.click();
-                break;
-            }
-        }
-
+        Random random = new Random();
+        int randomChooseCategory = random.nextInt(9);
+        WebElement selectedRandomChooseCategory = categoryPageElements.chooseByCategoryList.get(randomChooseCategory);
+        selectedRandomChooseCategory.click();
     }
 
-   /* @Then("Select Sub Category {int}")
-    public void selectSubCategory(int index) {
-        Driver.Wait(5);
-        int currentIndex = 0;
-        for (WebElement element : categoryPageElements.selectSubCategoryList) {
-            if (currentIndex == index) {
-                element.click();
-                break;
-            }
-            currentIndex++;
-        }
-        if (currentIndex != index) {
-            System.out.println("Invalid index: " + index);
-        }
-    }*/
-    @Then("Select Sub Category for Text List {string}")
-    public void selectSubCategoryForTextList(String chosenCategory) {
+
+    @Then("Select Sub Category for Text List")
+    public void selectSubCategoryForTextList() {
         Driver.Wait(2);
         categoryPageElements.selectSubCategoryListForTextFirst.click();
-        Driver.Wait(5);
-        for (WebElement element : categoryPageElements.selectSubCategoryListForText) {
-            if (element.getText().equals(chosenCategory)) {
-                element.click();
-                break;
-            }
-        }
+        Random random = new Random();
+        int randomChooseSubCategoryTextList;
+        do {
+            randomChooseSubCategoryTextList = random.nextInt(categoryPageElements.selectSubCategoryListForText.size());
+        } while (randomChooseSubCategoryTextList < 9);
 
+        WebElement selectedRandomChooseSubCategory = categoryPageElements.selectSubCategoryListForText.get(randomChooseSubCategoryTextList);
+        selectedRandomChooseSubCategory.click();
 
     }
-    @Then("Select Sub Category for Image List {string}")
-    public void selectSubCategoryForImageList(String chosenCategory) {
+    @Then("Select Sub Category for Image List")
+    public void selectSubCategoryForImageList() {
+
         Driver.Wait(2);
-        for (WebElement element : categoryPageElements.selectSubCategoryListForImage){
-            if (element.getText().equals(chosenCategory)) {
-                element.click();
-                break;
-            }
-        }
+        Random random = new Random();
+        int randomChooseSubCategoryImageList = random.nextInt(categoryPageElements.selectSubCategoryListForImage.size());
+        WebElement selectedRandomChooseSubCategory = categoryPageElements.selectSubCategoryListForImage.get(randomChooseSubCategoryImageList);
+        selectedRandomChooseSubCategory.click();
+
     }
+
     @Then("Select the Product")
     public void selectTheProduct() throws InterruptedException {
         Driver.Wait(5);

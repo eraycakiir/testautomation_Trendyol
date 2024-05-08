@@ -15,8 +15,7 @@ public class categoryPage {
     }
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\"]")
     public List <WebElement> chooseByCategoryList;
-    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"trendyol.com:id/imageCollapsibleBannerItem\"])")
-    public List <WebElement> selectSubCategoryList;
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\"]")
     public List <WebElement> selectSubCategoryListForText;
     @AndroidFindBy(xpath = "(//android.widget.RelativeLayout[@resource-id=\"trendyol.com:id/layoutCollapsibleBannerHeader\"])[1]")
