@@ -21,8 +21,7 @@ public class cartPage {
     public WebElement subTractButton;
     @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Ürünü sil\"]\n")
     public WebElement deleteButton;
-    @AndroidFindBy(xpath = "//com.skydoves.balloon.compose.BalloonComposeView/android.view.View/android.view.View/android.view.View\n")
-    public WebElement dissmisButton;
+
     @AndroidFindBy(xpath = "\t\n" +"//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewBasketRemoveAction\"]")
     public WebElement deleteButtonAction;
 }

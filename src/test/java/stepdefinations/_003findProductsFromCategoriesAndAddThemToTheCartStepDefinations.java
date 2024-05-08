@@ -26,41 +26,31 @@ public class _003findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
         mainPageElements.categoriesButton.click();
         Driver.Wait(5);
     }
+
     @Then("Select Category")
     public void selectCategory() {
         Driver.Wait(5);
-        Random random = new Random();
-        int randomChooseCategory = random.nextInt(9);
-        WebElement selectedRandomChooseCategory = categoryPageElements.chooseByCategoryList.get(randomChooseCategory);
-        selectedRandomChooseCategory.click();
+        WebElement selectedCategory = HelperFunctions.selectRandomElement(categoryPageElements.chooseByCategoryList.subList(0, 9));
+        selectedCategory.click();
     }
-
 
     @Then("Select Sub Category for Text List")
     public void selectSubCategoryForTextList() {
         Driver.Wait(2);
         categoryPageElements.selectSubCategoryListForTextFirst.click();
-        Random random = new Random();
-        int randomChooseSubCategoryTextList;
+        WebElement selectedSubCategory;
         do {
-            randomChooseSubCategoryTextList = random.nextInt(categoryPageElements.selectSubCategoryListForText.size());
-        } while (randomChooseSubCategoryTextList < 9);
-
-        WebElement selectedRandomChooseSubCategory = categoryPageElements.selectSubCategoryListForText.get(randomChooseSubCategoryTextList);
-        selectedRandomChooseSubCategory.click();
-
+            selectedSubCategory = HelperFunctions.selectRandomElement(categoryPageElements.selectSubCategoryListForText);
+        } while (categoryPageElements.selectSubCategoryListForText.indexOf(selectedSubCategory) < 9);
+        selectedSubCategory.click();
     }
+
     @Then("Select Sub Category for Image List")
     public void selectSubCategoryForImageList() {
-
         Driver.Wait(2);
-        Random random = new Random();
-        int randomChooseSubCategoryImageList = random.nextInt(categoryPageElements.selectSubCategoryListForImage.size());
-        WebElement selectedRandomChooseSubCategory = categoryPageElements.selectSubCategoryListForImage.get(randomChooseSubCategoryImageList);
-        selectedRandomChooseSubCategory.click();
-
+        WebElement selectedSubCategory = HelperFunctions.selectRandomElement(categoryPageElements.selectSubCategoryListForImage);
+        selectedSubCategory.click();
     }
-
     @Then("Select the Product")
     public void selectTheProduct() throws InterruptedException {
         Driver.Wait(5);

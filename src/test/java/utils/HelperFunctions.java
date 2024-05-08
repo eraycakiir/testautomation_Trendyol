@@ -8,6 +8,8 @@ import org.openqa.selenium.interactions.Sequence;
 
 import java.time.Duration;
 import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class HelperFunctions {
     public static void scroll(AppiumDriver driver, int scroll) throws InterruptedException {
@@ -52,5 +54,10 @@ public class HelperFunctions {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Fiyat metnini çözümleme hatası: " + priceText);
         }
+    }
+    private static final Random random = new Random();
+
+    public static <T> T selectRandomElement(List<T> elements) {
+        return elements.get(random.nextInt(elements.size()));
     }
 }
