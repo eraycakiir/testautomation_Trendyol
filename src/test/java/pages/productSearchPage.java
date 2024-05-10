@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import utils.Driver;
 
 import java.time.Duration;
+import java.util.List;
 
 public class productSearchPage {
     public productSearchPage() {
@@ -14,4 +15,9 @@ public class productSearchPage {
     }
     @AndroidFindBy(xpath = "//androidx.recyclerview.widget.RecyclerView[@resource-id=\"trendyol.com:id/recyclerViewSearchAutoComplete\"]/android.view.ViewGroup[1]\n")
     public WebElement  firstElementForTheSearchedProduct;
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"trendyol.com:id/filterView\"]/android.view.ViewGroup\n")
+    public WebElement  filterButton;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewFilterTitle\"]")
+    public List<WebElement> selectFilterOption;
+
 }

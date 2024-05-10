@@ -1,14 +1,20 @@
 package utils;
 
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Random;
 
 public class HelperFunctions {
@@ -55,6 +61,57 @@ public class HelperFunctions {
             throw new IllegalArgumentException("Fiyat metnini çözümleme hatası: " + priceText);
         }
     }
+
+
+    public static void scrollToTextAndClick(AppiumDriver driver, List<WebElement> elements, String searchText) throws InterruptedException {
+        boolean found = false;
+        Dimension size = driver.manage().window().getSize();
+        int startX = size.getWidth() / 2;
+        int startY = size.getHeight() / 2;
+        int endX = startX;
+        int endY = (int) (size.getHeight() * 0.25);
+        PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
+
+        int previousSize = 0;
+        int currentSize = elements.size();
+
+        while (!found && previousSize != currentSize) {
+            for (WebElement element : elements) {
+                System.out.println(element.getText());// Yazdırılan metinleri görüntüle
+                if (element.getText().equals(searchText)) {
+                    element.click();
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                previousSize = currentSize;  // Güncellemeden önceki boyut
+                Sequence sequence = new Sequence(finger1, 1)
+                        .addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY))
+                        .addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                        .addAction(new Pause(finger1, Duration.ofMillis(100)))
+                        .addAction(finger1.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), endX, endY))  // Daha yavaş bir scroll
+                        .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+                driver.perform(Collections.singletonList(sequence));
+                Thread.sleep(1000);  // DOM'un güncellenmesini bekle
+                elements = driver.findElements(By.xpath("//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewFilterTitle\"]"));  // Element listesini yenile
+                currentSize = elements.size();
+            }
+        }
+
+        if (!found) {
+            System.out.println("Text not found: " + searchText);
+        }
+
+        if (previousSize == currentSize) {
+            System.out.println("Reached the end of the list.");
+        }
+    }
+
+
+
     private static final Random random = new Random();
 
     public static <T> T selectRandomElement(List<T> elements) {
