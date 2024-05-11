@@ -6,8 +6,6 @@ import pages.productSearchPage;
 import utils.Driver;
 import utils.HelperFunctions;
 
-import java.util.zip.DataFormatException;
-
 public class _004filterProduct {
 
     mainPage mainPageElements = new mainPage();
@@ -16,15 +14,27 @@ public class _004filterProduct {
 
     @Then("Click to Opportunity Products Button")
     public void clickToOpportunityProductsButton() {
-    mainPageElements.opportunityProductsButton.click();
+        mainPageElements.opportunityProductsButton.click();
     }
+
     @Then("Click to Filters Button")
     public void clickToFiltersButton() {
         productSearchPageElements.filterButton.click();
     }
+
     @Then("Select Filter")
     public void selectFilter() throws InterruptedException {
-        HelperFunctions.scrollToTextAndClick(Driver.getDriver(),productSearchPageElements.selectFilterOption,"Renk ");
+        HelperFunctions.scrollToTextAndClick(Driver.getDriver(), productSearchPageElements.selectFilterOption, "Renk ");
+    }
+
+    @Then("Click to Apply Filter Button")
+    public void clickToApplyFilterButton() {
+        productSearchPageElements.applyFilterButton.click();
+    }
+
+    @Then("Click to Apply Filter Button Again")
+    public void clickToApplyFilterButtonAgain() {
+        productSearchPageElements.applyFilterButton.click();
 
     }
 }

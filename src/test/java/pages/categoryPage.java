@@ -22,4 +22,5 @@ public class categoryPage {
     public  WebElement selectSubCategoryListForTextFirst;
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/titleCollapsibleBannerItem\"]")
     public List  <WebElement> selectSubCategoryListForImage;
+
 }
