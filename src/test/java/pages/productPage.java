@@ -23,7 +23,6 @@ public class productPage {
     public  WebElement addToCart;
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/productDetailBasketItemCount\"]\n")
     public  WebElement goToCart;
-    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"trendyol.com:id/btnApplyFilter\"]\n")
-    public WebElement applyFilterButton;
+
 
 }

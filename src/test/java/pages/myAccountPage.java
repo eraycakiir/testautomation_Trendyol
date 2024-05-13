@@ -14,5 +14,7 @@ public class myAccountPage {
     }
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewEmail\"]\n")
     public WebElement eMailTextForConfirm;
+ @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Önceden Gezdiklerim\"]\n")
+ public WebElement previouslyViewedButton;
 
 }
