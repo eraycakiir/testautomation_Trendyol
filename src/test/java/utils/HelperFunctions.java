@@ -1,6 +1,9 @@
 package utils;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
@@ -109,6 +112,35 @@ public class HelperFunctions {
             System.out.println("Reached the end of the list.");
         }
     }
+    public static void scrollToElementAndClickWithXPATH(AppiumDriver driver, String xpath) throws InterruptedException {
+        // Ekran boyutunu al
+        Dimension size = driver.manage().window().getSize();
+        int startX = size.getWidth() / 2;
+        int startY = size.getHeight() / 2;
+        int endX = startX;
+        int endY = (int) (size.getHeight() * 0.25);  // Kaydırma mesafesi
+
+        // Element bulunana kadar döngü içinde kaydırma işlemi yap
+        while (driver.findElements(By.xpath(xpath)).isEmpty()) {
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
+            Sequence sequence = new Sequence(finger, 1)
+                    .addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY))
+                    .addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                    .addAction(new Pause(finger, Duration.ofMillis(100)))
+                    .addAction(finger.createPointerMove(Duration.ofMillis(300), PointerInput.Origin.viewport(), endX, endY))
+                    .addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+            driver.perform(Collections.singletonList(sequence));
+            Thread.sleep(500); // Biraz beklet, sonra tekrar kontrol et
+        }
+
+        // Element artık görünür durumda, tıklama işlemi yap
+        WebElement element = driver.findElement(By.xpath(xpath));
+        element.click();
+        Thread.sleep(1000); // Tıklama sonrası biraz beklet
+    }
+
+
 
 
 
