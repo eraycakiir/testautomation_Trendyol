@@ -18,7 +18,7 @@ public class productSearchPage {
     @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"trendyol.com:id/filterView\"]/android.view.ViewGroup\n")
     public WebElement  filterButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewFilterTitle\"]")
-    public List<WebElement> selectFilterOption;
+    public List <WebElement> selectFilterOption;
     @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"trendyol.com:id/btnApplyFilter\"]\n")
     public WebElement applyFilterButton;
 

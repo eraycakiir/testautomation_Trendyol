@@ -42,7 +42,7 @@ public class _001loginStepDefinations extends Driver {
     @When("Click to password and writing to password")
     public void clickToPasswordAndWritingToPassword() {
         loginPageElements.passwordTextBox.click();
-        loginPageElements.passwordTextBox.sendKeys("Eray.test1234");
+        loginPageElements.passwordTextBox.sendKeys("Eray.test12345");
     }
 
     @And("Click to Login Button")

@@ -20,15 +20,12 @@ public class myAccountPage {
     public WebElement previouslyViewedButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Şifre Değişikliği\"]\n")
     public WebElement changePassword;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Mevcut Şifre\"]\n")
-    public WebElement currentPassword;
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Yeni Şifre\"]\n")
-    public WebElement newPassword;
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Tekrar Yeni Şifre\n\"]\n")
-    public WebElement newPasswordAgain;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Güncelle\"]\n")
     public WebElement updateButton;
-
+    @AndroidFindBy(className = "android.widget.EditText")
+    public List <WebElement>  editTextElements;
+    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"android:id/button1\"]\n")
+    public  WebElement okayButton;
 
 }

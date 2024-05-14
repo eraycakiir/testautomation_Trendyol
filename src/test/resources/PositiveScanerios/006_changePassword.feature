@@ -8,4 +8,5 @@ Feature:
     When Write New Password
     When Write Confirm Password
     When Click to Change Password Button
+    And Verification Password Change Click Okay Button
 
