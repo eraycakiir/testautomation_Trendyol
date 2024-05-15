@@ -5,7 +5,6 @@ Feature:
     When Click to My Account Settings
     When Click to Address Information
     When Click to Add Address Button
-    When Click to Add Address Button
     When Click to Name Button and Write Name
     When Click to Surname Button and Write Surname
     When Click to TellPhone Button and Write TellPhone

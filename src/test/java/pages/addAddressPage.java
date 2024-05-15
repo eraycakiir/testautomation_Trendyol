@@ -14,10 +14,16 @@ public class addAddressPage {
     {
         PageFactory.initElements(new AppiumFieldDecorator(Driver.getDriver(), Duration.ofSeconds(25)), this);
     }
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Adres Bilgilerim\"]\n")
-    public WebElement addressInformation;
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textRightUp\"]\n")
-    public  WebElement addAddressButton;
+    public WebElement addAddressButton;
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"trendyol.com:id/editTextOwnerName\"]\n")
+    public WebElement nameTextArea;
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"trendyol.com:id/editTextOwnerSurname\"]\n")
+    public WebElement surNameTextArea;
+    @AndroidFindBy(xpath = "\t\n" +
+            "//android.widget.EditText[@resource-id=\"trendyol.com:id/editTextPhoneNumber\"]")
+    public WebElement telPhoneTextArea;
     @AndroidFindBy(className = "android.widget.TextView")
     public List<WebElement> contactInformation;
 

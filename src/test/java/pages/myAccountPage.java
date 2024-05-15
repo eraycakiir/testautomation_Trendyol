@@ -20,6 +20,8 @@ public class myAccountPage {
     public WebElement previouslyViewedButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Şifre Değişikliği\"]\n")
     public WebElement changePassword;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Adres Bilgilerim\"]\n")
+    public WebElement addressInformation;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Güncelle\"]\n")
     public WebElement updateButton;

@@ -94,7 +94,7 @@ public class HelperFunctions {
                         .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
                 driver.perform(Collections.singletonList(sequence));
-                Thread.sleep(1000);  // DOM'un güncellenmesini bekle
+                Driver.Wait(4);  // DOM'un güncellenmesini bekle
                 elements = driver.findElements(By.xpath("//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewFilterTitle\"]"));  // Element listesini yenile
                 currentSize = elements.size();
             }
@@ -136,13 +136,44 @@ public class HelperFunctions {
         Thread.sleep(1000); // Tıklama sonrası biraz beklet
     }
 
-
-
-
-
     private static final Random random = new Random();
 
     public static <T> T selectRandomElement(List<T> elements) {
         return elements.get(random.nextInt(elements.size()));
     }
+
+    public static void selectRandomCity(AppiumDriver driver, List<WebElement> cityList) throws InterruptedException {
+        Random random = new Random();
+        boolean cityFound = false;
+
+        while (!cityFound) {
+            for (WebElement city : cityList) {
+                if (random.nextBoolean()) {
+                    city.click();
+                    cityFound = true;
+                    break;
+                }
+            }
+            if (!cityFound) {
+                Dimension size = driver.manage().window().getSize();
+                int startX = size.getWidth() / 2;
+                int startY = size.getHeight() / 2;
+                int endX = startX;
+                int endY = (int) (size.getHeight() * 0.25);
+
+                PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
+                Sequence sequence = new Sequence(finger, 1)
+                        .addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY))
+                        .addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                        .addAction(new Pause(finger, Duration.ofMillis(100)))
+                        .addAction(finger.createPointerMove(Duration.ofMillis(300), PointerInput.Origin.viewport(), endX, endY))
+                        .addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+                driver.perform(Collections.singletonList(sequence));
+                Thread.sleep(500); // Biraz beklet, sonra tekrar kontrol et
+            }
+        }
+    }
 }
+
+
