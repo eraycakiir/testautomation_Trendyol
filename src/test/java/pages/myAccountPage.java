@@ -28,4 +28,7 @@ public class myAccountPage {
     @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"android:id/button1\"]\n")
     public  WebElement okayButton;
 
+
+
+
 }

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import utils.Driver;
 
 import java.time.Duration;
+import java.util.List;
 
 public class mainPage {
     public mainPage() {
@@ -15,7 +16,6 @@ public class mainPage {
     @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"trendyol.com:id/navigation_bar_item_icon_view\"])[5]\n")
     public WebElement myAccountBox;
 
-
     @AndroidFindBy(xpath = "//android.widget.EditText[@content-desc=\"Ara\"]\n")
     public WebElement productSearchTextBox;
     @AndroidFindBy(xpath = "(//androidx.appcompat.widget.LinearLayoutCompat[@resource-id=\"trendyol.com:id/linearLayoutButton\"])[1]\n")
@@ -23,5 +23,7 @@ public class mainPage {
 
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Fırsat Ürünleri\"]\n")
     public WebElement opportunityProductsButton;
+  
+
 
 }
