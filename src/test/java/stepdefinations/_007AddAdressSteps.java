@@ -7,9 +7,12 @@ import pages.myAccountPage;
 import utils.Driver;
 import utils.HelperFunctions;
 
+import java.util.Random;
+
 public class _007AddAdressSteps {
     addAddressPage addAddressPageElements = new addAddressPage();
     myAccountPage myAccountPageElements = new myAccountPage();
+
     @When("Click to Address Information")
     public void clickToAddressInformation() {
         myAccountPageElements.addressInformation.click();
@@ -21,6 +24,7 @@ public class _007AddAdressSteps {
         addAddressPageElements.addAddressButton.click();
 
     }
+
     @When("Click to Name Button and Write Name")
     public void clickToNameButtonAndWriteName() {
         addAddressPageElements.nameTextArea.click();
@@ -36,47 +40,72 @@ public class _007AddAdressSteps {
 
     @When("Click to TellPhone Button and Write TellPhone")
     public void clickToTellPhoneButtonAndWriteTellPhone() {
-       addAddressPageElements.telPhoneTextArea.click();
-       addAddressPageElements.telPhoneTextArea.sendKeys("5555555555");
+        addAddressPageElements.telPhoneTextArea.click();
+        addAddressPageElements.telPhoneTextArea.sendKeys("5336782086");
     }
 
     @When("Click to City Button")
     public void clickToCityButton() {
+        addAddressPageElements.randomClick.click();
         addAddressPageElements.cityButton.click();
         Driver.Wait(2);
     }
 
+    Random rand = new Random();
+
     @When("Select Random City")
     public void selectRandomCityFunc() throws InterruptedException {
-        // TODO
-        HelperFunctions.selectRandomCity(Driver.getDriver(),addAddressPageElements.cityList);
+
+        int randomScroll = rand.nextInt(10 - 1 + 1) + 1;
+        HelperFunctions.scroll(Driver.getDriver(), randomScroll);
+
+        Driver.Wait(4);
+        HelperFunctions.selectRandomElement(Driver.getDriver(), addAddressPageElements.cityList);
+
     }
 
     @When("Select Random District")
-    public void selectRandomDistrict() {
+    public void selectRandomDistrict() throws InterruptedException {
+        HelperFunctions.scroll(Driver.getDriver(), 2);
+        Driver.Wait(2);
+        HelperFunctions.selectRandomElement(Driver.getDriver(), addAddressPageElements.discrtictList);
+
     }
 
     @When("Select Random Neighborhood")
-    public void selectRandomNeighborhood() {
+    public void selectRandomNeighborhood() throws InterruptedException {
+        HelperFunctions.scroll(Driver.getDriver(), 2);
+        Driver.Wait(2);
+        HelperFunctions.selectRandomElement(Driver.getDriver(), addAddressPageElements.neighborhoodList);
     }
 
     @When("Write Detail Adress")
     public void writeDetailAdress() {
+
+        addAddressPageElements.detailAdressTextArea.sendKeys("Kat: 3  , Daire :4 Trendyol Apartmanı ");
     }
 
     @And("Scroll Page")
-    public void scrollPage() {
+    public void scrollPage() throws InterruptedException {
+        addAddressPageElements.randomClick.click();
+        HelperFunctions.scroll(Driver.getDriver(), 1);
+
     }
 
     @And("Click to Adress Name")
     public void clickToAdressName() {
+        addAddressPageElements.addressName.click();
     }
 
     @And("Write  Adress Name")
     public void writeAdressName() {
+        int randomNumber = rand.nextInt(100 - 1 + 1) + 1;
+        addAddressPageElements.addressName.sendKeys("Ev " + randomNumber);
     }
 
     @And("Click to Save Button")
     public void clickToSaveButton() {
+        addAddressPageElements.randomClick.click();
+        addAddressPageElements.saveAddressButton.click();
     }
 }

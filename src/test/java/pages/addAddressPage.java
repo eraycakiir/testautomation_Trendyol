@@ -39,6 +39,10 @@ public class addAddressPage {
 
     @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"trendyol.com:id/editTextAddressName\"]\n")
     public  WebElement addressName;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewAddressInfo\"]\n")
+    public  WebElement randomClick;
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"trendyol.com:id/editTextAddress\"]\n")
+    public  WebElement detailAdressTextArea;
     @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"trendyol.com:id/buttonSave\"]\n")
     public  WebElement saveAddressButton;
 }
