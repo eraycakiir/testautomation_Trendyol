@@ -18,6 +18,8 @@ public class mainPage {
 
     @AndroidFindBy(xpath = "//android.widget.EditText[@content-desc=\"Ara\"]\n")
     public WebElement productSearchTextBox;
+    @AndroidFindBy(xpath = "//android.widget.FrameLayout[@content-desc=\"Favorilerim\"]\n")
+    public WebElement myFavoritesButton;
     @AndroidFindBy(xpath = "(//androidx.appcompat.widget.LinearLayoutCompat[@resource-id=\"trendyol.com:id/linearLayoutButton\"])[1]\n")
     public WebElement categoriesButton;
 
