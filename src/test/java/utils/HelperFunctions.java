@@ -12,6 +12,8 @@ import org.openqa.selenium.interactions.Sequence;
 
 import java.time.Duration;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class HelperFunctions {
@@ -156,6 +158,7 @@ public class HelperFunctions {
         int startX = size.getWidth() / 2;
         int startY = (int) (size.getHeight() * 0.75);
         int endY = (int) (size.getHeight() * 0.25);
+        int totalProduct;
 
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
         Set<String> seenTexts = new HashSet<>();
@@ -195,6 +198,19 @@ public class HelperFunctions {
         }
 
         System.out.println("Toplam görülen farklı ürün sayısı: " + seenTexts.size());
+    }
+
+    public static int extractNumberFromText(String text) {
+        Pattern pattern = Pattern.compile("\\d+");
+        Matcher matcher = pattern.matcher(text);
+
+        // Eğer bir sayı bulunursa, bunu integer'a çevir ve döndür
+        if (matcher.find()) {
+            return Integer.parseInt(matcher.group());
+        }
+
+        // Eğer sayı bulunamazsa, bir hata döndür veya 0 dön
+        return 0; // Veya throw new IllegalArgumentException("No numbers found in the text.");
     }
 
 }

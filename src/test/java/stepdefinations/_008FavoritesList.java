@@ -1,10 +1,14 @@
 package stepdefinations;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import pages.mainPage;
 import pages.myFavoritesPage;
 import utils.Driver;
 import utils.HelperFunctions;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class _008FavoritesList {
     myFavoritesPage myFavoritesPageElements = new myFavoritesPage();
@@ -18,5 +22,20 @@ public class _008FavoritesList {
     @When("Learn the Number of Products in My Favorites List")
     public void learnTheNumberOfProductsInMyFavoritesList() throws InterruptedException {
         HelperFunctions.scrollAndCountProducts(Driver.getDriver(),myFavoritesPageElements.favoritesList);
+    }
+
+    @When("Click to Choose Product Button")
+    public void clickToChooseProductButton() {
+        myFavoritesPageElements.chooseProduct.click();
+        Driver.Wait(2);
+    }
+
+    @And("Verification Quantity of Product")
+    public void verificationQuantityOfProduct() {
+        String text = myFavoritesPageElements.favoritesText.getText();
+        int numberOfProducts = HelperFunctions.extractNumberFromText(text);
+        System.out.println(numberOfProducts);
+
+
     }
 }

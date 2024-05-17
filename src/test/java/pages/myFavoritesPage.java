@@ -15,4 +15,10 @@ public class myFavoritesPage {
     }
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewFavoriteItemDescription\"]")
     public List<WebElement> favoritesList;
+
+    @AndroidFindBy(xpath = "//androidx.cardview.widget.CardView[@content-desc=\"Düzenle\"]\n")
+    public WebElement chooseProduct;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textLeftUp\"]\n")
+    public WebElement favoritesText;
 }
