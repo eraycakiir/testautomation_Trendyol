@@ -7,9 +7,6 @@ import pages.myFavoritesPage;
 import utils.Driver;
 import utils.HelperFunctions;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class _008FavoritesList {
     myFavoritesPage myFavoritesPageElements = new myFavoritesPage();
     mainPage mainPageElements = new mainPage();
@@ -34,8 +31,9 @@ public class _008FavoritesList {
     public void verificationQuantityOfProduct() {
         String text = myFavoritesPageElements.favoritesText.getText();
         int numberOfProducts = HelperFunctions.extractNumberFromText(text);
-        System.out.println(numberOfProducts);
-
+        if (HelperFunctions.productCount == numberOfProducts) {
+            System.out.println("Test Basarili");
+        }
 
     }
 }

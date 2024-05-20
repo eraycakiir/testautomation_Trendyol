@@ -17,6 +17,8 @@ import java.util.regex.Pattern;
 
 
 public class HelperFunctions {
+    public static int productCount;
+
     public static void scroll(AppiumDriver driver, int scroll) throws InterruptedException {
         Dimension size = driver.manage().window().getSize();
         int startX = size.getWidth() / 2;
@@ -158,7 +160,6 @@ public class HelperFunctions {
         int startX = size.getWidth() / 2;
         int startY = (int) (size.getHeight() * 0.75);
         int endY = (int) (size.getHeight() * 0.25);
-        int totalProduct;
 
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
         Set<String> seenTexts = new HashSet<>();
@@ -176,8 +177,6 @@ public class HelperFunctions {
             for (WebElement product : products) {
 
                 String productText = product.getText();
-                System.out.println("Ürün metni: " + productText);  // Ürün metnini konsola yazdır
-
                 if (seenTexts.add(productText)) {
                     isScrollNeeded = true;
                 }
@@ -198,6 +197,7 @@ public class HelperFunctions {
         }
 
         System.out.println("Toplam görülen farklı ürün sayısı: " + seenTexts.size());
+        productCount = seenTexts.size();
     }
 
     public static int extractNumberFromText(String text) {
