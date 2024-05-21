@@ -4,6 +4,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -13,6 +14,8 @@ import java.time.Duration;
 
 public class Driver {
     private static AndroidDriver driver;
+
+    public static WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10)); // WebDriverWait nesnesini başlatma
 
     public static AndroidDriver getDriver() {
         if (driver == null) {
