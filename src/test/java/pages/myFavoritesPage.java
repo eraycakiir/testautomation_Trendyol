@@ -15,10 +15,18 @@ public class myFavoritesPage {
     }
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewFavoriteItemDescription\"]")
     public List<WebElement> favoritesList;
+    @AndroidFindBy(xpath = "\t\n" +
+            "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewFavoriteItemBrand\"")
+    public List<WebElement> brandList;
 
     @AndroidFindBy(xpath = "//androidx.cardview.widget.CardView[@content-desc=\"Düzenle\"]\n")
     public WebElement chooseProduct;
-
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"trendyol.com:id/edittext_search_view\"]\n")
+    public WebElement textSearch;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewSearchHistoryKeyword\"]\n")
+    public WebElement textFilteredProduct;
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textLeftUp\"]\n")
     public WebElement favoritesText;
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@resource-id=\"trendyol.com:id/imageview_action_end\"]\n")
+    public WebElement deleteTextButton;
 }

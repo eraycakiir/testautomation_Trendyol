@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.clockAndAccessoryPage;
 import pages.mainPage;
+import pages.myFavoritesPage;
 import pages.productPage;
 import utils.Driver;
 import utils.HelperFunctions;
@@ -19,6 +20,7 @@ public class _010AddingProductToFavoritesAndFilterText extends Driver {
     productPage productPageElement = new productPage();
     clockAndAccessoryPage clockAndAccessoryPageElement = new clockAndAccessoryPage();
     mainPage mainPageElements = new mainPage();
+    myFavoritesPage myFavoritesPageElements = new myFavoritesPage();
 
     @Then("Click Categories And Control Enabled with and click category")
     public void clickCategoriesAndControlEnabledWithAndClickCategory(DataTable categoryTable) {
@@ -73,6 +75,38 @@ public class _010AddingProductToFavoritesAndFilterText extends Driver {
     }
 
     @And("Filter the Three added products with text and verify that they are the correct product.")
-    public void filterTheThreeAddedProductsWithTextAndVerifyThatTheyAreTheCorrectProduct() {
+    public void filterTheThreeAddedProductsWithTextAndVerifyThatTheyAreTheCorrectProduct()
+    {
+        String[] brandTexts = new String[3];
+        for (int i = 0; i < 3; i++) {
+            brandTexts[i] = myFavoritesPageElements.brandList.get(i).getText();
+            System.out.println(brandTexts[i]);
+        }
+        String firstBrandText = brandTexts[0];
+        String secondBrandText = brandTexts[1];
+        String thirdBrandText = brandTexts[2];
+
+        myFavoritesPageElements.textSearch.click();
+        myFavoritesPageElements.textSearch.sendKeys(firstBrandText);
+        myFavoritesPageElements.textFilteredProduct.click();
+
+        if(myFavoritesPageElements.textSearch.getText().equals(firstBrandText)){
+            System.out.println("The first product is filtered correctly.");
+        }
+        myFavoritesPageElements.deleteTextButton.click();
+        myFavoritesPageElements.textSearch.click();
+        myFavoritesPageElements.textSearch.sendKeys(secondBrandText);
+        myFavoritesPageElements.textFilteredProduct.click();
+        if(myFavoritesPageElements.textSearch.getText().equals(secondBrandText)){
+            System.out.println("The second product is filtered correctly.");
+        }
+        myFavoritesPageElements.deleteTextButton.click();
+        myFavoritesPageElements.textSearch.click();
+        myFavoritesPageElements.textSearch.sendKeys(thirdBrandText);
+        myFavoritesPageElements.textFilteredProduct.click();
+        if(myFavoritesPageElements.textSearch.getText().equals(thirdBrandText)){
+            System.out.println("The third product is filtered correctly.");
+        }
+        myFavoritesPageElements.deleteTextButton.click();
     }
 }
