@@ -3,15 +3,14 @@ Feature:
   Scenario:
     Given Go to the Main Page
     Then Click Categories And Control Enabled with and click category
-      | category          |
-      | Erkek             |
       | Kadın             |
+      | Erkek             |
       | Moda              |
       | Spor&Outdoor      |
-      | Hobi & Müzik      |
+      | Saat & Aksesuar   |
       | Kozmetik          |
       | Ev & Yaşam        |
-      | Saat & Aksesuar   |
+      | Hobi & Müzik      |
       | Süpermarket       |
       | Anne & Çocuk      |
       | Ayakkabı & Çanta  |

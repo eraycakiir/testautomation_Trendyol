@@ -1,5 +1,6 @@
 package stepdefinations;
 
+import com.google.common.collect.ImmutableMap;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -12,7 +13,6 @@ import pages.myFavoritesPage;
 import pages.productPage;
 import utils.Driver;
 import utils.HelperFunctions;
-
 import java.util.List;
 import java.util.Random;
 
@@ -24,7 +24,7 @@ public class _010AddingProductToFavoritesAndFilterText extends Driver {
 
     @Then("Click Categories And Control Enabled with and click category")
     public void clickCategoriesAndControlEnabledWithAndClickCategory(DataTable categoryTable) {
-        Driver.Wait(5);
+        Driver.Wait(3);
         List<String> categories = categoryTable.asList(String.class);
         for (String category : categories) {
             try {
@@ -75,38 +75,28 @@ public class _010AddingProductToFavoritesAndFilterText extends Driver {
     }
 
     @And("Filter the Three added products with text and verify that they are the correct product.")
-    public void filterTheThreeAddedProductsWithTextAndVerifyThatTheyAreTheCorrectProduct()
-    {
+    public void filterTheThreeAddedProductsWithTextAndVerifyThatTheyAreTheCorrectProduct() {
         String[] brandTexts = new String[3];
+
         for (int i = 0; i < 3; i++) {
             brandTexts[i] = myFavoritesPageElements.brandList.get(i).getText();
             System.out.println(brandTexts[i]);
         }
-        String firstBrandText = brandTexts[0];
-        String secondBrandText = brandTexts[1];
-        String thirdBrandText = brandTexts[2];
 
-        myFavoritesPageElements.textSearch.click();
-        myFavoritesPageElements.textSearch.sendKeys(firstBrandText);
-        myFavoritesPageElements.textFilteredProduct.click();
+        for (String brandText : brandTexts) {
+            myFavoritesPageElements.clickSearchArea.click();
+            myFavoritesPageElements.writeProductName.sendKeys(brandText);
+            getDriver().executeScript("mobile: performEditorAction", ImmutableMap.of("action", "search"));
+            Wait(4); // Arama sonuçlarının gelmesini beklemek için
 
-        if(myFavoritesPageElements.textSearch.getText().equals(firstBrandText)){
-            System.out.println("The first product is filtered correctly.");
+            if (myFavoritesPageElements.writedProduct.getText().equals(brandText)) {
+                System.out.println(brandText + " is filtered correctly.");
+            } else {
+                System.out.println("Error: " + brandText + " is not filtered correctly.");
+            }
+
+            myFavoritesPageElements.deleteTextButton.click();
         }
-        myFavoritesPageElements.deleteTextButton.click();
-        myFavoritesPageElements.textSearch.click();
-        myFavoritesPageElements.textSearch.sendKeys(secondBrandText);
-        myFavoritesPageElements.textFilteredProduct.click();
-        if(myFavoritesPageElements.textSearch.getText().equals(secondBrandText)){
-            System.out.println("The second product is filtered correctly.");
-        }
-        myFavoritesPageElements.deleteTextButton.click();
-        myFavoritesPageElements.textSearch.click();
-        myFavoritesPageElements.textSearch.sendKeys(thirdBrandText);
-        myFavoritesPageElements.textFilteredProduct.click();
-        if(myFavoritesPageElements.textSearch.getText().equals(thirdBrandText)){
-            System.out.println("The third product is filtered correctly.");
-        }
-        myFavoritesPageElements.deleteTextButton.click();
     }
+
 }
