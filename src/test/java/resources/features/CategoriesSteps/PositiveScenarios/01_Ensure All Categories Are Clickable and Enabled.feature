@@ -1,8 +1,8 @@
-Feature:
+Feature: Ensure All Categories Are Clickable and Enabled
 
-  Scenario:
+  Scenario: Ensure all categories are clickable and enabled
     Given Go to the Main Page
-    Then Click Categories And Control Enabled with and click category
+    And Click Categories And Control Enabled with:
       | Kadın             |
       | Erkek             |
       | Moda              |
@@ -20,7 +20,3 @@ Feature:
       | Oto & Yapı Market |
       | Kitap & Kırtasiye |
       | İş Yerine Özel    |
-    Then Click on the Influencers' Choices Button
-    Then Add Three Random Products to Favorites
-    Then Click to Favorites Button
-    And Filter the Three added products with text and verify that they are the correct product.

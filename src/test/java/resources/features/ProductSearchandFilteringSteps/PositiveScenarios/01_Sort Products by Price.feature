@@ -1,5 +1,5 @@
-Feature:
-  Scenario:
+Feature: Sort Products by Price
+  Scenario: Sort Products by Price
     Given Go to the Main Page
     When Click to product search text box
     When Writing product name

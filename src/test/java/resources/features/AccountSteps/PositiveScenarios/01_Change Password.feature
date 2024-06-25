@@ -1,5 +1,5 @@
-Feature:
-  Scenario:
+Feature:Change Password
+  Scenario:Change Password
     Given Go to the Main Page
     When Click to My Account Button
     When Click to My Account Settings

@@ -1,8 +1,8 @@
-Feature: Check All Categories
+Feature: Filter Products in Favorites
 
-  Scenario: Ensure all categories are clickable and enabled
+  Scenario: Filter Products in Favorites
     Given Go to the Main Page
-    And Click Categories And Control Enabled with:
+    Then Click Categories And Control Enabled with and click category
       | Kadın             |
       | Erkek             |
       | Moda              |
@@ -20,3 +20,7 @@ Feature: Check All Categories
       | Oto & Yapı Market |
       | Kitap & Kırtasiye |
       | İş Yerine Özel    |
+    Then Click on the Influencers' Choices Button
+    Then Add Three Random Products to Favorites
+    Then Click to Favorites Button
+    And Filter the Three added products with text and verify that they are the correct product.

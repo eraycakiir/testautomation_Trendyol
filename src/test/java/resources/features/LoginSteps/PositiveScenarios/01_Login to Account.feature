@@ -1,5 +1,6 @@
-Feature:
-  Scenario:
+Feature:Login to Account
+  Scenario:Login to Account
+
     Given Go to the Main Page
     When Click to My Account Button
     When Click to e-mail and writing to e-mail
