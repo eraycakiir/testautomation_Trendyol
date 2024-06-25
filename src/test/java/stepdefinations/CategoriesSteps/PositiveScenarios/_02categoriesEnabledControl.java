@@ -1,4 +1,4 @@
-package stepdefinations;
+package stepdefinations.CategoriesSteps.PositiveScenarios;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.Driver;
 import java.util.List;
 
-public class _009categoriesEnabledControl extends Driver {
+public class _02categoriesEnabledControl extends Driver {
     @And("Click Categories And Control Enabled with:")
     public void clickCategoriesAndControlEnabled(DataTable categoryTable) {
         Driver.Wait(5);

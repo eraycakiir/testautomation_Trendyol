@@ -1,4 +1,4 @@
-package stepdefinations;
+package stepdefinations.CategoriesSteps.PositiveScenarios;
 
 
 import io.cucumber.java.en.And;
@@ -9,17 +9,17 @@ import pages.categoryPage;
 import pages.mainPage;
 import pages.productPage;
 import utils.Driver;
-import utils.HelperFunctions;
+import utils.ReusableMethods;
 
 import java.util.Random;
 
 
-public class _003findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
+public class _01findProductsFromCategoriesAndAddThemToTheCart {
     mainPage mainPageElements = new mainPage();
     categoryPage categoryPageElements = new categoryPage();
     productPage productPageElements = new productPage();
     cartPage cartPageElements = new cartPage();
-    HelperFunctions helperFunctions = new HelperFunctions();
+    ReusableMethods helperFunctions = new ReusableMethods();
 
     @Then("Click to All Categories button")
     public void clickToAllCategoriesButton() {
@@ -30,7 +30,7 @@ public class _003findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
     @Then("Select Category")
     public void selectCategory() {
         Driver.Wait(5);
-        WebElement selectedCategory = HelperFunctions.selectRandomElement(categoryPageElements.chooseByCategoryList.subList(0, 9));
+        WebElement selectedCategory = ReusableMethods.selectRandomElement(categoryPageElements.chooseByCategoryList.subList(0, 9));
         selectedCategory.click();
     }
 
@@ -40,7 +40,7 @@ public class _003findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
         categoryPageElements.selectSubCategoryListForTextFirst.click();
         WebElement selectedSubCategory;
         do {
-            selectedSubCategory = HelperFunctions.selectRandomElement(categoryPageElements.selectSubCategoryListForText);
+            selectedSubCategory = ReusableMethods.selectRandomElement(categoryPageElements.selectSubCategoryListForText);
         } while (categoryPageElements.selectSubCategoryListForText.indexOf(selectedSubCategory) < 9);
         selectedSubCategory.click();
     }
@@ -48,7 +48,7 @@ public class _003findProductsFromCategoriesAndAddThemToTheCartStepDefinations {
     @Then("Select Sub Category for Image List")
     public void selectSubCategoryForImageList() {
         Driver.Wait(2);
-        WebElement selectedSubCategory = HelperFunctions.selectRandomElement(categoryPageElements.selectSubCategoryListForImage);
+        WebElement selectedSubCategory = ReusableMethods.selectRandomElement(categoryPageElements.selectSubCategoryListForImage);
         selectedSubCategory.click();
     }
     @Then("Select the Product")

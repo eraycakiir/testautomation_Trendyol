@@ -1,12 +1,12 @@
-package stepdefinations;
+package stepdefinations.ProductSearchSteps.PositiveScenarios;
 
 import io.cucumber.java.en.Then;
 import pages.mainPage;
 import pages.productSearchPage;
 import utils.Driver;
-import utils.HelperFunctions;
+import utils.ReusableMethods;
 
-public class _004filterProduct {
+public class _02filterProduct {
 
     mainPage mainPageElements = new mainPage();
     productSearchPage productSearchPageElements = new productSearchPage();
@@ -24,7 +24,7 @@ public class _004filterProduct {
 
     @Then("Select Filter")
     public void selectFilter() throws InterruptedException {
-        HelperFunctions.scrollToTextAndClick(Driver.getDriver(), productSearchPageElements.selectFilterOption, "Renk ");
+        ReusableMethods.scrollToTextAndClick(Driver.getDriver(), productSearchPageElements.selectFilterOption, "Renk ");
     }
 
     @Then("Click to Apply Filter Button")

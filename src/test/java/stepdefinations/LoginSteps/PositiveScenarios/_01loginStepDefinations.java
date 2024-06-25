@@ -1,4 +1,4 @@
-package stepdefinations;
+package stepdefinations.LoginSteps.PositiveScenarios;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -8,7 +8,7 @@ import pages.mainPage;
 import pages.myAccountPage;
 import utils.Driver;
 
-public class _001loginStepDefinations extends Driver {
+public class _01loginStepDefinations extends Driver {
     mainPage mainPageElements = new mainPage();
     loginPage loginPageElements = new loginPage();
     myAccountPage myAccountPageElements = new myAccountPage();

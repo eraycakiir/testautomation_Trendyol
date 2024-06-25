@@ -1,4 +1,4 @@
-package stepdefinations;
+package stepdefinations.ProductSearchSteps.PositiveScenarios;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
@@ -7,7 +7,7 @@ import pages.mainPage;
 import pages.productPage;
 import pages.productSearchPage;
 
-public class _002findingTheMostExpensiveProductStepDefinations {
+public class _01findingTheMostExpensiveProductStepDefinations {
     mainPage mainPageElements = new mainPage();
     productSearchPage productSearchPageElements = new productSearchPage();
     productPage productPageElements = new productPage();

@@ -16,7 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class HelperFunctions {
+public class ReusableMethods {
     public static int productCount;
 
     public static void scroll(AppiumDriver driver, int scroll) throws InterruptedException {

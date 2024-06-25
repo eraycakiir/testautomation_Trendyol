@@ -1,15 +1,15 @@
-package stepdefinations;
+package stepdefinations.AccountSteps.PositiveScenarios;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import pages.addAddressPage;
 import pages.myAccountPage;
 import utils.Driver;
-import utils.HelperFunctions;
+import utils.ReusableMethods;
 
 import java.util.Random;
 
-public class _007AddAdressSteps {
+public class _02AddAdressSteps {
     addAddressPage addAddressPageElements = new addAddressPage();
     myAccountPage myAccountPageElements = new myAccountPage();
 
@@ -57,26 +57,26 @@ public class _007AddAdressSteps {
     public void selectRandomCityFunc() throws InterruptedException {
 
         int randomScroll = rand.nextInt(10 - 1 + 1) + 1;
-        HelperFunctions.scroll(Driver.getDriver(), randomScroll);
+        ReusableMethods.scroll(Driver.getDriver(), randomScroll);
 
         Driver.Wait(4);
-        HelperFunctions.selectRandomElement(Driver.getDriver(), addAddressPageElements.cityList);
+        ReusableMethods.selectRandomElement(Driver.getDriver(), addAddressPageElements.cityList);
 
     }
 
     @When("Select Random District")
     public void selectRandomDistrict() throws InterruptedException {
-        HelperFunctions.scroll(Driver.getDriver(), 2);
+        ReusableMethods.scroll(Driver.getDriver(), 2);
         Driver.Wait(2);
-        HelperFunctions.selectRandomElement(Driver.getDriver(), addAddressPageElements.discrtictList);
+        ReusableMethods.selectRandomElement(Driver.getDriver(), addAddressPageElements.discrtictList);
 
     }
 
     @When("Select Random Neighborhood")
     public void selectRandomNeighborhood() throws InterruptedException {
-        HelperFunctions.scroll(Driver.getDriver(), 2);
+        ReusableMethods.scroll(Driver.getDriver(), 2);
         Driver.Wait(2);
-        HelperFunctions.selectRandomElement(Driver.getDriver(), addAddressPageElements.neighborhoodList);
+        ReusableMethods.selectRandomElement(Driver.getDriver(), addAddressPageElements.neighborhoodList);
     }
 
     @When("Write Detail Adress")
@@ -88,7 +88,7 @@ public class _007AddAdressSteps {
     @And("Scroll Page")
     public void scrollPage() throws InterruptedException {
         addAddressPageElements.randomClick.click();
-        HelperFunctions.scroll(Driver.getDriver(), 1);
+        ReusableMethods.scroll(Driver.getDriver(), 1);
 
     }
 

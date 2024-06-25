@@ -1,17 +1,17 @@
-package stepdefinations;
+package stepdefinations.AccountSteps.PositiveScenarios;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
 import pages.myAccountPage;
 import utils.Driver;
-import utils.HelperFunctions;
+import utils.ReusableMethods;
 
-public class _006changePassword {
+public class _01changePassword {
     myAccountPage myAccountPageElements = new myAccountPage();
     @When("Click to My Account Settings")
     public void clickToMyAccountSettings() throws InterruptedException {
-        HelperFunctions.scrollToElementAndClickWithXPATH(Driver.getDriver(),"//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewItem\" and @text=\"Hesap Ayarlarım\"]");
+        ReusableMethods.scrollToElementAndClickWithXPATH(Driver.getDriver(),"//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewItem\" and @text=\"Hesap Ayarlarım\"]");
     }
 
     @When("Click to Change Password")

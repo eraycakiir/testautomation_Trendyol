@@ -1,13 +1,13 @@
-package stepdefinations;
+package stepdefinations.FavoritesSteps.PositiveScenarios;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import pages.mainPage;
 import pages.myFavoritesPage;
 import utils.Driver;
-import utils.HelperFunctions;
+import utils.ReusableMethods;
 
-public class _008FavoritesList {
+public class _01FavoritesList {
     myFavoritesPage myFavoritesPageElements = new myFavoritesPage();
     mainPage mainPageElements = new mainPage();
     @When("Click to My Favorites")
@@ -18,7 +18,7 @@ public class _008FavoritesList {
 
     @When("Learn the Number of Products in My Favorites List")
     public void learnTheNumberOfProductsInMyFavoritesList() throws InterruptedException {
-        HelperFunctions.scrollAndCountProducts(Driver.getDriver(),myFavoritesPageElements.favoritesList);
+        ReusableMethods.scrollAndCountProducts(Driver.getDriver(),myFavoritesPageElements.favoritesList);
     }
 
     @When("Click to Choose Product Button")
@@ -30,8 +30,8 @@ public class _008FavoritesList {
     @And("Verification Quantity of Product")
     public void verificationQuantityOfProduct() {
         String text = myFavoritesPageElements.favoritesText.getText();
-        int numberOfProducts = HelperFunctions.extractNumberFromText(text);
-        if (HelperFunctions.productCount == numberOfProducts) {
+        int numberOfProducts = ReusableMethods.extractNumberFromText(text);
+        if (ReusableMethods.productCount == numberOfProducts) {
             System.out.println("Test Basarili");
         }
 

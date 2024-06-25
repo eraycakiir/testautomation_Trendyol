@@ -1,4 +1,4 @@
-package stepdefinations;
+package stepdefinations.FavoritesSteps.PositiveScenarios;
 
 import com.google.common.collect.ImmutableMap;
 import io.cucumber.datatable.DataTable;
@@ -12,11 +12,11 @@ import pages.mainPage;
 import pages.myFavoritesPage;
 import pages.productPage;
 import utils.Driver;
-import utils.HelperFunctions;
+import utils.ReusableMethods;
 import java.util.List;
 import java.util.Random;
 
-public class _010AddingProductToFavoritesAndFilterText extends Driver {
+public class _02AddingProductToFavoritesAndFilterText extends Driver {
     productPage productPageElement = new productPage();
     clockAndAccessoryPage clockAndAccessoryPageElement = new clockAndAccessoryPage();
     mainPage mainPageElements = new mainPage();
@@ -60,7 +60,7 @@ public class _010AddingProductToFavoritesAndFilterText extends Driver {
             Driver.Wait(5);
             Random rand = new Random();
             int randomScroll = rand.nextInt(25 - 1 + 1) + 1; // 1 ile 25 arasında rastgele bir sayı üretir
-            HelperFunctions.scroll(Driver.getDriver(), randomScroll);
+            ReusableMethods.scroll(Driver.getDriver(), randomScroll);
             Driver.Wait(4);
             int randomProduct = rand.nextInt(productPageElement.addFavoriteList.size()); // Ürün listesinde rastgele bir ürün seçer
             System.out.println(randomProduct);

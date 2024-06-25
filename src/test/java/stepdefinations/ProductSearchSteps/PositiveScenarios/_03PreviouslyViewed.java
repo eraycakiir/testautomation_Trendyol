@@ -1,4 +1,4 @@
-package stepdefinations;
+package stepdefinations.ProductSearchSteps.PositiveScenarios;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
@@ -7,7 +7,7 @@ import pages.myAccountPage;
 import pages.previosulyViewedPage;
 
 
-public class _005PreviouslyViewed {
+public class _03PreviouslyViewed {
     myAccountPage myAccountPageElements = new myAccountPage();
     previosulyViewedPage  previosulyViewedPageElements = new previosulyViewedPage ();
     @When("Click to Previously Viewed Button")
