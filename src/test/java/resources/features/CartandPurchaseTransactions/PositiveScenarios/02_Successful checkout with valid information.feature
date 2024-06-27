@@ -1,6 +1,6 @@
 Feature: Shopping Cart and Checkout
 
-  Scenario: Adding products to the cart
+  Scenario: Successful Checkout with valid Information
     Given Go to the Main Page
     Then Click to All Categories button
     Then Select Category

@@ -1,4 +1,4 @@
-package stepdefinations.CategoriesSteps.PositiveScenarios;
+package stepdefinations.CartandPurchaseTransactions.PositiveScenarios;
 
 
 import io.cucumber.java.en.And;
@@ -14,7 +14,7 @@ import utils.ReusableMethods;
 import java.util.Random;
 
 
-public class _01findProductsFromCategoriesAndAddThemToTheCart {
+public class _03findProductsFromCategoriesAndAddThemToTheCart {
     mainPage mainPageElements = new mainPage();
     categoryPage categoryPageElements = new categoryPage();
     productPage productPageElements = new productPage();
