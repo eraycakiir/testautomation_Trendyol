@@ -16,7 +16,7 @@ import utils.ReusableMethods;
 import java.util.List;
 import java.util.Random;
 
-public class _02AddingProductToFavoritesAndFilterText extends Driver {
+public class _02FilterProductsInFavorites extends Driver {
     productPage productPageElement = new productPage();
     clockAndAccessoryPage clockAndAccessoryPageElement = new clockAndAccessoryPage();
     mainPage mainPageElements = new mainPage();

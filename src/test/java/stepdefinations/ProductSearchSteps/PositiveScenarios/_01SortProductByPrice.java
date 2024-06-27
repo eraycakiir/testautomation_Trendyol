@@ -7,7 +7,7 @@ import pages.mainPage;
 import pages.productPage;
 import pages.productSearchPage;
 
-public class _01findingTheMostExpensiveProductStepDefinations {
+public class _01SortProductByPrice {
     mainPage mainPageElements = new mainPage();
     productSearchPage productSearchPageElements = new productSearchPage();
     productPage productPageElements = new productPage();

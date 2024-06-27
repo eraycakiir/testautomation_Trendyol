@@ -4,6 +4,6 @@ Feature: Sign up page
     Given Go to the Main Page
     When Click to My Account Button
     When the user is on the sign-up page
-    When the user enters an invalid email format
+    When the user enters an invalid email format for sign in page
     And the user clicks on the sign-up button
     Then the user should see an error message

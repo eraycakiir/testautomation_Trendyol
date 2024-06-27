@@ -7,7 +7,7 @@ import pages.myFavoritesPage;
 import utils.Driver;
 import utils.ReusableMethods;
 
-public class _01FavoritesList {
+public class _01ManageFavorites {
     myFavoritesPage myFavoritesPageElements = new myFavoritesPage();
     mainPage mainPageElements = new mainPage();
     @When("Click to My Favorites")

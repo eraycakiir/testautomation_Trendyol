@@ -1,6 +1,6 @@
 Feature: Sign-up Page
 Scenario: Social media account creation
-  Scenario: Successful account creation with valid information
+  Scenario: Successful account creation social media account
     Given Go to the Main Page
     When Click to My Account Button
     When the user is on the sign-up page
