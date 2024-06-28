@@ -1,9 +1,9 @@
 Feature: Sign up page
 
-  Scenario:Unsuccessful account creation with invalid email format
+  Scenario:Unsuccessful account creation without  letter password
     Given Go to the Main Page
     When Click to My Account Button
     When the user is on the sign-up page
-    When the user enters an invalid email format for sign in page
+    When the user enters a weak password with out letter
     And the user clicks on the sign-up button
     And the user should see an error message in sign up page

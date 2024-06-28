@@ -29,6 +29,8 @@ public class myAccountPage {
     public List <WebElement>  editTextElements;
     @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"android:id/button1\"]\n")
     public  WebElement okayButton;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewRegister\"]\n")
+    public  WebElement signUpButton;
 
 
 
