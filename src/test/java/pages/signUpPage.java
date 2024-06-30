@@ -33,5 +33,7 @@ public class signUpPage {
     public WebElement errorMessage;
   @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textinput_error\"]\n")
     public WebElement errorEmptyMessage;
+  @AndroidFindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"trendyol.com:id/buttonGoogleLogin\"]\n")
+    public WebElement googleButton;
 
 }

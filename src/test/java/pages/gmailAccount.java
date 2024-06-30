@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import utils.Driver;
 
 import java.time.Duration;
+import java.util.List;
 
 public class gmailAccount {
     public gmailAccount() {
@@ -16,4 +17,7 @@ public class gmailAccount {
     public WebElement lastMail;
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.google.android.gm:id/subject_and_folder_view\"]\n")
     public WebElement verificationCodeArea;
+    @AndroidFindBy(xpath = "(//android.widget.LinearLayout[@resource-id=\"com.google.android.gms:id/container\"])")
+    public List <WebElement>gmailAccounts;
 }
+

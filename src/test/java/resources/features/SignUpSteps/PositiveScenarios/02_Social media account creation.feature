@@ -7,4 +7,4 @@ Scenario: Social media account creation
     When the user clicks on the Google sign-up button
     Then the user should be redirected to the Google sign-up page
     When the user enters valid Google credentials
-    Then the user should be signed up successfully
+    Then the user should see a my account page

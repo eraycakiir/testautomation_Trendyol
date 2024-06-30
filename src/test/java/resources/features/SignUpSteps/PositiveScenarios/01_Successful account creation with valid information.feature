@@ -6,5 +6,7 @@ Feature: Sign-Up Page
     When the user is on the sign-up page
     When the user enters all required fields with valid information
     And the user clicks on the sign-up button
-    Then the user should see a success message and be redirected to the home page
+    When Go to the Gmail Account for verification code
+    When enter verification code
+    Then the user should see a my account page
 
