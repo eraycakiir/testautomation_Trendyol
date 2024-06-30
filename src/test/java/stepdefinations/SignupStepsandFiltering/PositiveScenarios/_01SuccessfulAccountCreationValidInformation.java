@@ -55,12 +55,7 @@ public class _01SuccessfulAccountCreationValidInformation {
         ReusableMethods.pressAppSwitchButton();
 
 
-       /* Activity trendyolActivity = new Activity("com.dmall.mfandroid", "com.trendyol.common.splash.impl.ui.SplashActivity");
-        trendyolActivity.setAppWaitPackage("com.dmall.mfandroid");
-        trendyolActivity.setAppWaitActivity("com.trendyol.common.splash.impl.ui.SplashActivity");
-        driver.startActivity(trendyolActivity);
-*/
-        // Doğrulama kodunu gir
+
         ReusableMethods.waitForVisibility(Driver.getDriver(), signUpPageElements.verificationCodeArea, 12);
         signUpPageElements.verificationCodeArea.click();
         signUpPageElements.verificationCodeArea.sendKeys(verificationCode);
