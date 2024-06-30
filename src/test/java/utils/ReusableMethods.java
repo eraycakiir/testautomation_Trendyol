@@ -2,6 +2,8 @@ package utils;
 
 import io.appium.java_client.AppiumDriver;
 
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -116,6 +118,20 @@ public class ReusableMethods {
         }
     }
 
+    public static void waitForSeconds(int s) {
+        try {
+            Thread.sleep(1000 * s);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void pressAppSwitchButton() {
+        if (Driver.getDriver() != null) {
+            Driver.getDriver().pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
+        }
+    }
+
     public static void scrollToElementAndClickWithXPATH(AppiumDriver driver, String xpath) throws InterruptedException {
         // Ekran boyutunu al
         Dimension size = driver.manage().window().getSize();
@@ -215,6 +231,7 @@ public class ReusableMethods {
         // Eğer sayı bulunamazsa, bir hata döndür veya 0 dön
         return 0; // Veya throw new IllegalArgumentException("No numbers found in the text.");
     }
+
     public static void waitForVisibility(WebDriver driver, WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         wait.until(ExpectedConditions.visibilityOf(element));

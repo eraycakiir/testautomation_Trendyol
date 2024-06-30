@@ -13,7 +13,7 @@ import java.net.URL;
 import java.time.Duration;
 
 public class Driver {
-    private static AndroidDriver driver;
+    public static AndroidDriver driver;
 
     public static WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10)); // WebDriverWait nesnesini başlatma
 
@@ -36,11 +36,14 @@ public class Driver {
         return driver;
     }
     public static AndroidDriver androidDriver;
+
     public static void pressBackButton() {
         if (driver != null) {
             driver.pressKey(new KeyEvent(AndroidKey.BACK));
         }
     }
+
+
 
     public static void Wait(int s) {
         try {
