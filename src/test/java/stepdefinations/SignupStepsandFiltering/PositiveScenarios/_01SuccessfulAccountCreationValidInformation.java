@@ -38,7 +38,6 @@ public class _01SuccessfulAccountCreationValidInformation {
 
     @When("Go to the Gmail Account for verification code")
     public void goToTheGmailAccountForVerificationCode() {
-        // Gmail uygulamasını aç
         driver.startActivity(new Activity("com.google.android.gm", "com.google.android.gm.ConversationListActivityGmail"));
 
         ReusableMethods.waitForSeconds(30);
@@ -49,7 +48,6 @@ public class _01SuccessfulAccountCreationValidInformation {
         String text = gmailAccountElements.verificationCodeArea.getText();
         System.out.println("Alınan Metin: " + text);
 
-        // Regex ile 6 haneli sayıyı bulma
         Pattern pattern = Pattern.compile("\\b\\d{6}\\b");
         Matcher matcher = pattern.matcher(text);
 

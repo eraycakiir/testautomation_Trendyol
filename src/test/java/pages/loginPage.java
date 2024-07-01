@@ -19,4 +19,9 @@ public class loginPage {
     @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"trendyol.com:id/buttonLogin\"]\n")
     public WebElement loginButton;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewForgotPassword\"]\n")
+    public WebElement forgotPasswordButton;
+    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"trendyol.com:id/buttonRenewPassword\"]\n")
+    public WebElement buttonRenewPassword;
+
 }

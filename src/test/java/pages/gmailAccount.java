@@ -15,6 +15,8 @@ public class gmailAccount {
     }
     @AndroidFindBy(xpath = "//android.widget.TextView[@package='com.google.android.gm' and @text='Trendyol' and @resource-id='com.google.android.gm:id/senders']\n")
     public WebElement lastMail;
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc='ŞİFREMİ GÜNCELLE']")
+    public WebElement updatePassword;
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.google.android.gm:id/subject_and_folder_view\"]\n")
     public WebElement verificationCodeArea;
     @AndroidFindBy(xpath = "(//android.widget.LinearLayout[@resource-id=\"com.google.android.gms:id/container\"])")
