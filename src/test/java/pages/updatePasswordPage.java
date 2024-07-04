@@ -12,7 +12,6 @@ public class updatePasswordPage {
     public updatePasswordPage() {
         PageFactory.initElements(new AppiumFieldDecorator(Driver.getDriver(), Duration.ofSeconds(25)), this);
     }
-    //android.widget.EditText[@resource-id="trendyol.com:id/editTextMail"]
     @AndroidFindBy(xpath = " //android.widget.EditText[@resource-id=\"trendyol.com:id/editTextMail\"]")
     public WebElement eMailTextBox;
     @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"trendyol.com:id/inputPassword\"]\n")

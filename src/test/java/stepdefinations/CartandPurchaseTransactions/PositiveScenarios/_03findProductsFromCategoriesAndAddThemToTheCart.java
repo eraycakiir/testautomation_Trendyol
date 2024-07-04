@@ -20,6 +20,7 @@ public class _03findProductsFromCategoriesAndAddThemToTheCart {
     productPage productPageElements = new productPage();
     cartPage cartPageElements = new cartPage();
     ReusableMethods helperFunctions = new ReusableMethods();
+    public  static   WebElement selectedCategory;
 
     @Then("Click to All Categories button")
     public void clickToAllCategoriesButton() {
@@ -30,7 +31,7 @@ public class _03findProductsFromCategoriesAndAddThemToTheCart {
     @Then("Select Category")
     public void selectCategory() {
         Driver.Wait(5);
-        WebElement selectedCategory = ReusableMethods.selectRandomElement(categoryPageElements.chooseByCategoryList.subList(0, 9));
+        selectedCategory = ReusableMethods.selectRandomElement(categoryPageElements.chooseByCategoryList.subList(0, 9));
         selectedCategory.click();
     }
 

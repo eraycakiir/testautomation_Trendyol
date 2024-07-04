@@ -23,4 +23,24 @@ public class categoryPage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/titleCollapsibleBannerItem\"]")
     public List  <WebElement> selectSubCategoryListForImage;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/titleCollapsibleBannerItem\" and @text=\"Elbise\"]\n")
+    public  WebElement elbiseTextVerification;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/titleCollapsibleBannerItem\" and @text=\"Takım Elbise\"]\n")
+    public  WebElement takımElbiseTextVerification;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\" and @text=\"Bebek\"]\n")
+    public  WebElement bebekTextVerification;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\" and @text=\"Sofra & Mutfak\"]\n")
+    public  WebElement sofraTextVerification;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\" and @text=\"Ev & Temizlik\"]\n")
+    public  WebElement evTemizlikTextVerification;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\" and @text=\"Makyaj\"]\n")
+    public  WebElement makyajTextVerification;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/titleCollapsibleBannerItem\" and @text=\"Saat\"]\n")
+    public  WebElement saatTextVerification;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\" and @text=\"Küçük Ev Aletleri\"]\n")
+    public  WebElement küçükEvAletleriTextVerification;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\" and @text=\"Spor & Outdoor\"]\n")
+    public  WebElement sporOutdorTextVerification;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\" and @text=\"Hobi\"]\n")
+    public  WebElement hobiTextVerification;
 }
