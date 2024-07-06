@@ -24,23 +24,33 @@ public class categoryPage {
     public List  <WebElement> selectSubCategoryListForImage;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/titleCollapsibleBannerItem\" and @text=\"Elbise\"]\n")
-    public  WebElement elbiseTextVerification;
+    public WebElement dressTextVerification;
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/titleCollapsibleBannerItem\" and @text=\"Takım Elbise\"]\n")
-    public  WebElement takımElbiseTextVerification;
+    public WebElement suitTextVerification;
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\" and @text=\"Bebek\"]\n")
-    public  WebElement bebekTextVerification;
+    public WebElement babyTextVerification;
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\" and @text=\"Sofra & Mutfak\"]\n")
-    public  WebElement sofraTextVerification;
+    public WebElement kitchenTablewareTextVerification;
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\" and @text=\"Ev & Temizlik\"]\n")
-    public  WebElement evTemizlikTextVerification;
+    public WebElement homeCleaningTextVerification;
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\" and @text=\"Makyaj\"]\n")
-    public  WebElement makyajTextVerification;
+    public WebElement makeupTextVerification;
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/titleCollapsibleBannerItem\" and @text=\"Saat\"]\n")
-    public  WebElement saatTextVerification;
+    public WebElement watchTextVerification;
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\" and @text=\"Küçük Ev Aletleri\"]\n")
-    public  WebElement küçükEvAletleriTextVerification;
+    public WebElement smallHomeAppliancesTextVerification;
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\" and @text=\"Spor & Outdoor\"]\n")
-    public  WebElement sporOutdorTextVerification;
+    public WebElement sportsOutdoorTextVerification;
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewTitle\" and @text=\"Hobi\"]\n")
-    public  WebElement hobiTextVerification;
+    public WebElement hobbyTextVerification;
+
 }

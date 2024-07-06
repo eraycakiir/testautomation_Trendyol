@@ -5,9 +5,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.categoryPage;
-import utils.Driver;
+import utils.ReusableMethods;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import static stepdefinations.CartandPurchaseTransactions.PositiveScenarios._03findProductsFromCategoriesAndAddThemToTheCart.selectedCategory;
@@ -16,30 +15,55 @@ public class _04SuccesfulFilteringByCategories {
     static categoryPage categoryPageElements = new categoryPage();
     private static Map<String, By> categoryVerificationElements;
 
-
-    static {
-        categoryVerificationElements = new HashMap<>();
-        categoryVerificationElements.put("Kadın", By.id(categoryPageElements.elbiseTextVerification.getText()));
-        categoryVerificationElements.put("Erkek",By.id(categoryPageElements.takımElbiseTextVerification.getText()) );
-        categoryVerificationElements.put("Anne & Çocuk",By.id(categoryPageElements.bebekTextVerification.getText()) );
-        categoryVerificationElements.put("Ev & Mobilya", By.id(categoryPageElements.sofraTextVerification.getText()));
-        categoryVerificationElements.put("Süpermarket",By.id(categoryPageElements.evTemizlikTextVerification.getText()));
-        categoryVerificationElements.put("Kozmetik",By.id(categoryPageElements.makyajTextVerification.getText()) );
-        categoryVerificationElements.put("Saat & Aksesuar",By.id(categoryPageElements.saatTextVerification.getText()));
-        categoryVerificationElements.put("Elektronik",By.id(categoryPageElements.küçükEvAletleriTextVerification.getText()) );
-        categoryVerificationElements.put("Spor & Outdoor",By.id(categoryPageElements.sporOutdorTextVerification.getText()));
-        categoryVerificationElements.put("Kitap & Kırtasiye & Hobi",By.id(categoryPageElements.hobiTextVerification.getText()) );
-    }
+    /**
+     * Verifies that the user sees a list of products within the selected category.
+     */
     @Then("the user should see a list of products within the selected category")
     public void theUserShouldSeeAListOfProductsWithinTheSelectedCategory() {
-        // Seçilen kategorinin textini al
         String selectedCategoryText = selectedCategory.getText();
 
-        // Doğrulama elementini al
-        By verificationElementLocator = categoryVerificationElements.get(selectedCategoryText);
-        WebElement verificationElement = Driver.getDriver().findElement(verificationElementLocator);
+        System.out.println("Selected category: " + selectedCategoryText);
+        ReusableMethods.waitForSeconds(15);
 
-        // Doğrulama
-        Assert.assertTrue("The category verification element is not displayed!", verificationElement.isDisplayed());
+        // Retrieve the verification element based on the selected category
+        WebElement verificationElement = null;
+
+        switch (selectedCategoryText) {
+            case "Kadın":
+                verificationElement = categoryPageElements.dressTextVerification;
+                break;
+            case "Erkek":
+                verificationElement = categoryPageElements.suitTextVerification;
+                break;
+            case "Anne & Çocuk":
+                verificationElement = categoryPageElements.babyTextVerification;
+                break;
+            case "Ev & Mobilya":
+                verificationElement = categoryPageElements.kitchenTablewareTextVerification;
+                break;
+            case "Süpermarket":
+                verificationElement = categoryPageElements.homeCleaningTextVerification;
+                break;
+            case "Kozmetik":
+                verificationElement = categoryPageElements.makeupTextVerification;
+                break;
+            case "Saat & Aksesuar":
+                verificationElement = categoryPageElements.watchTextVerification;
+                break;
+            case "Elektronik":
+                verificationElement = categoryPageElements.smallHomeAppliancesTextVerification;
+                break;
+            case "Spor & Outdoor":
+                verificationElement = categoryPageElements.sportsOutdoorTextVerification;
+                break;
+            case "Kitap & Kırtasiye & Hobi":
+                verificationElement = categoryPageElements.hobbyTextVerification;
+                break;
+            default:
+                throw new AssertionError("Unknown category: " + selectedCategoryText);
+        }
+
+        // Verification
+        Assert.assertTrue("The category verification element is not displayed for category: " + selectedCategoryText, verificationElement.isDisplayed());
     }
 }
