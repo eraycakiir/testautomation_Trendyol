@@ -1,7 +1,7 @@
 Feature:  Filtering with no results
   Scenario:  Filtering with no results
     Given Go to the Main Page
-    When Click to product search text box
+    Then Click to All Categories button
     Then Select Category
     Then Select Sub Category for Text List
     Then Select Sub Category for Image List

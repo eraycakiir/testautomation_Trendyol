@@ -8,6 +8,6 @@ Feature: Successful filtering by categories
     Then Select Sub Category for Image List
     Then Click to Filters Button
     When the user selects a brand filter
-    Then the user should see a list of products matching the selected brand and color
+    Then the user should see a list of products matching the selected brand
     And the user clicks on the search button
-    Then the user should see an appropriate error message
+   And Check the  filter results

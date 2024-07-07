@@ -23,6 +23,7 @@ import java.util.regex.Pattern;
 
 public class ReusableMethods {
     public static int productCount;
+    public static String firstWord;
 
     public static void scroll(AppiumDriver driver, int scroll) throws InterruptedException {
         Dimension size = driver.manage().window().getSize();
@@ -235,6 +236,23 @@ public class ReusableMethods {
     public static void waitForVisibility(WebDriver driver, WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+    /**
+     * This method retrieves the text from the given WebElement
+     * and returns only the first word.
+     *
+     * @param element The WebElement from which to get the text
+     * @return The first word from the text
+     */
+    public static String getFirstWordFromElement(WebElement element) {
+        // Get the text from the element
+        String fullText = element.getText();
+
+        // Split the text by space and take the first word
+         firstWord = fullText.split(" ")[0];
+
+        // Return the first word
+        return firstWord;
     }
 
 }
