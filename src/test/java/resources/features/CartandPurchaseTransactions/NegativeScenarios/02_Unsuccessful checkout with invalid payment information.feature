@@ -10,6 +10,7 @@ Feature: : Unsuccessful checkout with an empty cart
     Then Select the Product
     Then Add To Cart
     Then Go to Cart
+    Then Confirm Cart
     When the user enters invalid payment information
     And the user clicks on the Place Order button
     Then the user should see an error message

@@ -21,6 +21,19 @@ public class cartPage {
     public WebElement subTractButton;
     @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Ürünü sil\"]\n")
     public WebElement deleteButton;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textLeftUp\"]\n")
+    public WebElement textLeftUpForCart;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewMessage\"]\n")
+    public WebElement emptyTextViewMessage;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewPaymentCardInformationChangeType\"]\n")
+    public WebElement payWithAnotherCard;
+    @AndroidFindBy(xpath = "//android.widget.EditText[@content-desc=\"Kart numarası alanı\"]\n")
+    public WebElement cardNumberArea;
+    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"trendyol.com:id/buttonPaymentSubmit\"]\n")
+    public WebElement paymenSubmit;
+
+    @AndroidFindBy(xpath = "//androidx.compose.ui.platform.ComposeView[@resource-id=\"trendyol.com:id/composeViewApproveBasket\"]/android.view.View/android.view.View\n")
+    public WebElement confirmCart;
 
     @AndroidFindBy(xpath = "\t\n" +"//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewBasketRemoveAction\"]")
     public WebElement deleteButtonAction;

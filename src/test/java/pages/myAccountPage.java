@@ -25,12 +25,18 @@ public class myAccountPage {
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Güncelle\"]\n")
     public WebElement updateButton;
+    @AndroidFindBy(xpath = "(//androidx.cardview.widget.CardView[@resource-id=\"trendyol.com:id/cardViewBackground\"])[1]/android.view.ViewGroup\n")
+    public WebElement allOrders;
     @AndroidFindBy(className = "android.widget.EditText")
     public List <WebElement>  editTextElements;
     @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"android:id/button1\"]\n")
     public  WebElement okayButton;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewBodyMass\"]\n")
+    public  WebElement profileButton;
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewRegister\"]\n")
     public  WebElement signUpButton;
+    @AndroidFindBy(xpath = "(//androidx.compose.ui.platform.ComposeView[@resource-id=\"trendyol.com:id/composeViewOrderReviewButton\"])")
+    public List <WebElement> viewOrderReview;
 
 
 

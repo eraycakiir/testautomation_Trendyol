@@ -10,4 +10,3 @@ Feature: Shopping Cart and Checkout
     Then Add To Cart
     Then Go to Cart
     Then the product should be added to the cart
-    And the cart should be updated correctly

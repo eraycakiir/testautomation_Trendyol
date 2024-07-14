@@ -26,9 +26,13 @@ public class addAddressPage {
     public WebElement telPhoneTextArea;
     @AndroidFindBy(className = "android.widget.TextView")
     public List<WebElement> contactInformation;
+    @AndroidFindBy(className = "(//android.widget.ImageView[@resource-id=\"trendyol.com:id/imageViewEdit\"])")
+    public List<WebElement> selectAddress;
 
     @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id=\"trendyol.com:id/editTextCity\"]\n")
     public  WebElement cityButton;
+    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"trendyol.com:id/buttonDelete\"]\n")
+    public  WebElement deleteButton;
 
     @AndroidFindBy(className = "android.widget.TextView")
     public List<WebElement> cityList;

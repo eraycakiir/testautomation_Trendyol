@@ -14,7 +14,7 @@ import utils.ReusableMethods;
 import java.util.Random;
 
 
-public class _03findProductsFromCategoriesAndAddThemToTheCart {
+public class _02findProductsFromCategoriesAndAddThemToTheCart {
     mainPage mainPageElements = new mainPage();
     categoryPage categoryPageElements = new categoryPage();
     productPage productPageElements = new productPage();

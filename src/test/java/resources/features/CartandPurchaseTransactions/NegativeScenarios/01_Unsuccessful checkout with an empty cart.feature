@@ -11,5 +11,4 @@ Feature: : Unsuccessful checkout with an empty cart
     Then Add To Cart
     Then Go to Cart
     And Delete Product from cart
-    When the user attempts to place an order
     Then the user should see an error message indicating the cart is empty

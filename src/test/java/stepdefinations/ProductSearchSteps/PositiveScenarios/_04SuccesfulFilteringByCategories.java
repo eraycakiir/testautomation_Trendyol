@@ -9,7 +9,7 @@ import utils.ReusableMethods;
 
 import java.util.Map;
 
-import static stepdefinations.CartandPurchaseTransactions.PositiveScenarios._03findProductsFromCategoriesAndAddThemToTheCart.selectedCategory;
+import static stepdefinations.CartandPurchaseTransactions.PositiveScenarios._02findProductsFromCategoriesAndAddThemToTheCart.selectedCategory;
 
 public class _04SuccesfulFilteringByCategories {
     static categoryPage categoryPageElements = new categoryPage();

@@ -20,6 +20,8 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static utils.Driver.driver;
+
 
 public class ReusableMethods {
     public static int productCount;
@@ -150,7 +152,6 @@ public class ReusableMethods {
                     .addAction(new Pause(finger, Duration.ofMillis(100)))
                     .addAction(finger.createPointerMove(Duration.ofMillis(300), PointerInput.Origin.viewport(), endX, endY))
                     .addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-
             driver.perform(Collections.singletonList(sequence));
             Thread.sleep(500); // Biraz beklet, sonra tekrar kontrol et
         }
@@ -237,6 +238,7 @@ public class ReusableMethods {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
+
     /**
      * This method retrieves the text from the given WebElement
      * and returns only the first word.
@@ -249,10 +251,44 @@ public class ReusableMethods {
         String fullText = element.getText();
 
         // Split the text by space and take the first word
-         firstWord = fullText.split(" ")[0];
+        firstWord = fullText.split(" ")[0];
 
         // Return the first word
         return firstWord;
+    }
+
+    public static void scrollUntilTextVisible(String text) throws InterruptedException {
+        boolean found = false;
+        Dimension size = driver.manage().window().getSize();
+        int startX = size.getWidth() / 2;
+        int startY = size.getHeight() / 2;
+        int endX = startX;
+        int endY = (int) (size.getHeight() * 0.25);
+        PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
+
+        while (!found) {
+            try {
+                WebElement element = driver.findElement(By.xpath("//android.widget.TextView[@text='" + text + "']"));
+                if (element.isDisplayed()) {
+                    found = true;
+                    System.out.println("Element found: " + text);
+                }
+            } catch (Exception e) {
+                // Create the swipe action
+                Sequence swipe = new Sequence(finger1, 1)
+                        .addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY))
+                        .addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                        .addAction(new Pause(finger1, Duration.ofMillis(100)))
+                        .addAction(finger1.createPointerMove(Duration.ofMillis(500), PointerInput.Origin.viewport(), endX, endY))
+                        .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+                // Perform the swipe action
+                driver.perform(Collections.singletonList(swipe));
+
+                // Wait a bit for the page to load
+                Thread.sleep(2000);
+            }
+        }
     }
 
 }
