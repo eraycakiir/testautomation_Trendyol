@@ -23,6 +23,10 @@ public class productPage {
     public  WebElement addToCart;
     @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/productDetailBasketItemCount\"]\n")
     public  WebElement goToCart;
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewShowSellerQuestions\"]\n")
+    public  WebElement showSellerQuestionsButtons;
+    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"trendyol.com:id/secondaryButton\"]\n")
+    public  WebElement askQuestionToSellerButtons;
     @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"trendyol.com:id/imageViewFavorite\"])\n")
     public List <WebElement>  addFavoriteList;
 

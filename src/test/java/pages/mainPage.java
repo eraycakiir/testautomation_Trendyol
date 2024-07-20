@@ -25,8 +25,19 @@ public class mainPage {
 
     @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc=\"Fırsat Ürünleri\"]\n")
     public WebElement opportunityProductsButton;
+    @AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"trendyol.com:id/imageViewNotification\"])[1]\n")
+    public WebElement messagesIconButton;
 
   
 
 
 }
+
+
+
+
+
+
+
+
+

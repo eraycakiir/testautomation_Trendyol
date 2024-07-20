@@ -11,7 +11,7 @@ public class _01changePassword {
     myAccountPage myAccountPageElements = new myAccountPage();
     @When("Click to My Account Settings")
     public void clickToMyAccountSettings() throws InterruptedException {
-        ReusableMethods.scrollToElementAndClickWithXPATH(Driver.getDriver(),"//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewItem\" and @text=\"Hesap Ayarlarım\"]");
+        ReusableMethods.scrollToElementAndClickWithWebElement(Driver.getDriver(),myAccountPageElements.accountSettings);
     }
 
     @When("Click to Change Password")

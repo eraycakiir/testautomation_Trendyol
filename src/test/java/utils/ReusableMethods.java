@@ -135,7 +135,7 @@ public class ReusableMethods {
         }
     }
 
-    public static void scrollToElementAndClickWithXPATH(AppiumDriver driver, String xpath) throws InterruptedException {
+    public static void scrollToElementAndClickWithWebElement(AppiumDriver driver, WebElement element) throws InterruptedException {
         // Ekran boyutunu al
         Dimension size = driver.manage().window().getSize();
         int startX = size.getWidth() / 2;
@@ -144,7 +144,7 @@ public class ReusableMethods {
         int endY = (int) (size.getHeight() * 0.25);  // Kaydırma mesafesi
 
         // Element bulunana kadar döngü içinde kaydırma işlemi yap
-        while (driver.findElements(By.xpath(xpath)).isEmpty()) {
+        while (!element.isDisplayed()) {
             PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
             Sequence sequence = new Sequence(finger, 1)
                     .addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY))
@@ -157,10 +157,10 @@ public class ReusableMethods {
         }
 
         // Element artık görünür durumda, tıklama işlemi yap
-        WebElement element = driver.findElement(By.xpath(xpath));
         element.click();
         Thread.sleep(1000); // Tıklama sonrası biraz beklet
     }
+
 
     public static final Random random = new Random();
 

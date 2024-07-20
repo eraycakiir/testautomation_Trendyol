@@ -37,8 +37,8 @@ public class myAccountPage {
     public  WebElement signUpButton;
     @AndroidFindBy(xpath = "(//androidx.compose.ui.platform.ComposeView[@resource-id=\"trendyol.com:id/composeViewOrderReviewButton\"])")
     public List <WebElement> viewOrderReview;
-
-
+    @AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"trendyol.com:id/textViewItem\" and @text=\"Hesap Ayarlarım\"]\n")
+    public  WebElement accountSettings;
 
 
 }
